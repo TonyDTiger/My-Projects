@@ -13,9 +13,9 @@ The following instructions define the steps and resources needed to run the simu
 This Matlab-Simulink simulator provides a simulation environment to develop and test GN&C FSW algorithms with translation/rotational astrodynamics and GN&C actuator/sensor hardware models. 
 
 ## Preview of Current Progress
-https://github.com/user-attachments/assets/18677399-dde8-40d1-b4ef-5fd85e60384a
+![Orbit Around Earth with SC Frame](/Plots_and_Videos/11_16_2024_SunNadir_PolarOrbit_Test/plot_SC_orbit_attitude.mp4)
 
-https://github.com/user-attachments/assets/08a3308b-c043-4640-b9a1-352a644fec63
+![Simulink Multibody Video of SC Rotating](/Plots_and_Videos/11_16_2024_SunNadir_PolarOrbit_Test/multibody_video.mp4)
 
 ![Simulink_Data_Inspector_Snapshot](/Plots_and_Videos/11_16_2024_SunNadir_PolarOrbit_Test/Simulink_Data_Inspector_Snapshot.png)
 
