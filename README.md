@@ -14,7 +14,7 @@ This Matlab-Simulink simulator provides a simulation environment to develop and 
 
 ## Preview of Current Progress
 
-https://github.com/user-attachments/assets/90f82d6b-5e39-4bf4-8a50-b3b2b4381477
+https://github.com/user-attachments/assets/aba0aee5-d5a9-4b44-8b49-2c1ac8e1a988
 
 https://github.com/user-attachments/assets/d3fc6f18-1a44-4a82-9971-3981435ee97a
 
