@@ -17,7 +17,7 @@ https://github.com/user-attachments/assets/18677399-dde8-40d1-b4ef-5fd85e60384a
 
 https://github.com/user-attachments/assets/08a3308b-c043-4640-b9a1-352a644fec63
 
-![Simulink_Data_Inspector_Snapshot](Plots_and_Videos\11_16_2024_SunNadir_PolarOrbit_Test\Simulink_Data_Inspector_Snapshot.png)
+![Simulink_Data_Inspector_Snapshot](/Plots_and_Videos/11_16_2024_SunNadir_PolarOrbit_Test/Simulink_Data_Inspector_Snapshot.png)
 
 ## Simulator Architecture
 ![GNC Matlab Simulator](https://github.com/user-attachments/assets/31ef7fa3-e604-4cb5-9543-028ac156cc89)
