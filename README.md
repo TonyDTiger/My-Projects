@@ -1,5 +1,5 @@
 # Setup Instructions
-The following instructions define the steps and resources needed to run the simulator
+The following instructions define the steps and resources needed to run the simulator - TBD
 
 ## Mathworks Toolboxes and Add-Ons Needed
 * MATLAB Support for MinGW-w64 C/C++ Compiler
