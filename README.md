@@ -5,7 +5,7 @@ The following instructions define the steps and resources needed to run the simu
 * MATLAB Support for MinGW-w64 C/C++ Compiler
 * Simscape
 * Simscape Multibody
-* Aerospace Toolbox
+* ~~Aerospace Toolbox~~ Replaced with NASA JPL's SPICE Toolkit
 
 # Project Details
 
