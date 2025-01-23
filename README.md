@@ -22,7 +22,7 @@ https://github.com/user-attachments/assets/d3fc6f18-1a44-4a82-9971-3981435ee97a
 
 ![Simulink_Data_Inspector_Snapshot](/Plots_and_Videos/11_16_2024_SunNadir_PolarOrbit_Test/Simulink_Data_Inspector_Snapshot.png)
 
-#### With 4 CMGs (pyramid configuration), Simscape multibody video
+#### With 4 Control Moment Gyroscopes (pyramid configuration), Simscape multibody video
 
 
 https://github.com/user-attachments/assets/9e2aed14-e257-4c0b-abb4-4891a4976cd4
