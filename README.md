@@ -1,5 +1,11 @@
 # Project Details
 
+## Mathworks Toolboxes and Add-Ons Used
+* MATLAB Support for MinGW-w64 C/C++ Compiler
+* Simscape
+* Simscape Multibody
+* ~~Aerospace Toolbox~~ Replaced with NASA JPL's SPICE Toolkit
+
 ## Overview
 This Matlab-Simulink simulator provides a simulation environment to develop and test GN&C FSW algorithms with translation/rotational astrodynamics and GN&C actuator/sensor hardware models. 
 
@@ -76,12 +82,6 @@ https://github.com/user-attachments/assets/9e2aed14-e257-4c0b-abb4-4891a4976cd4
 - [ ] Develop unit tests of FSW algorithms and astrodynamics models
 - [ ] Add Monte Carlo capabilities to project, and test run Monte Carlos
 - [ ] ...
-
-## Mathworks Toolboxes and Add-Ons Used
-* MATLAB Support for MinGW-w64 C/C++ Compiler
-* Simscape
-* Simscape Multibody
-* ~~Aerospace Toolbox~~ Replaced with NASA JPL's SPICE Toolkit
 
 ## Notes
 
