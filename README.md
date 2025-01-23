@@ -1,5 +1,5 @@
 # Setup Instructions
-The following instructions define the steps and resources needed to run the simulator
+The following instructions define the steps and resources needed to run the simulator - TBD
 
 ## Mathworks Toolboxes and Add-Ons Needed
 * MATLAB Support for MinGW-w64 C/C++ Compiler
@@ -13,14 +13,15 @@ The following instructions define the steps and resources needed to run the simu
 This Matlab-Simulink simulator provides a simulation environment to develop and test GN&C FSW algorithms with translation/rotational astrodynamics and GN&C actuator/sensor hardware models. 
 
 ## Preview of Current Progress
-https://github.com/user-attachments/assets/18677399-dde8-40d1-b4ef-5fd85e60384a
 
-https://github.com/user-attachments/assets/08a3308b-c043-4640-b9a1-352a644fec63
+https://github.com/user-attachments/assets/aba0aee5-d5a9-4b44-8b49-2c1ac8e1a988
+
+https://github.com/user-attachments/assets/d3fc6f18-1a44-4a82-9971-3981435ee97a
 
 ![Simulink_Data_Inspector_Snapshot](/Plots_and_Videos/11_16_2024_SunNadir_PolarOrbit_Test/Simulink_Data_Inspector_Snapshot.png)
 
 ## Simulator Architecture
-![GNC Matlab Simulator](/Plots_and_Videos/GN&C Simulator Architecture.png)
+![GNC Matlab Simulator](/Plots_and_Videos/GN&C_Simulator_Architecture.png)
 
 
 ## Tasks
