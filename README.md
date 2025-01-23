@@ -13,16 +13,16 @@ The following instructions define the steps and resources needed to run the simu
 This Matlab-Simulink simulator provides a simulation environment to develop and test GN&C FSW algorithms with translation/rotational astrodynamics and GN&C actuator/sensor hardware models. 
 
 ## Preview of Current Progress
-#### Sun Nadir Pointing Over One Orbit Period
+#### Sun Earth Nadir Pointing Mode Over One Orbit Period
 https://github.com/user-attachments/assets/aba0aee5-d5a9-4b44-8b49-2c1ac8e1a988
 
-#### With 4 Reaction Wheels (pyramid configuration), Simscape multibody video
+#### Slew to Sun Earth Nadir Pointing Mode With 4 Reaction Wheels (pyramid configuration), Simscape multibody video
 
 https://github.com/user-attachments/assets/d3fc6f18-1a44-4a82-9971-3981435ee97a
 
 ![Simulink_Data_Inspector_Snapshot](/Plots_and_Videos/11_16_2024_SunNadir_PolarOrbit_Test/Simulink_Data_Inspector_Snapshot.png)
 
-#### With 4 Control Moment Gyroscopes (pyramid configuration), Simscape multibody video
+#### Slew to Sun Earth Nadir Pointing Mode With 4 Control Moment Gyroscopes (pyramid configuration), Simscape multibody video
 
 
 https://github.com/user-attachments/assets/9e2aed14-e257-4c0b-abb4-4891a4976cd4
