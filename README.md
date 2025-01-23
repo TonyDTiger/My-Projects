@@ -45,9 +45,9 @@ https://github.com/user-attachments/assets/9e2aed14-e257-4c0b-abb4-4891a4976cd4
 || Develop two-body orbit translational astrodynamics model             | Done      | Earth-satellite       |
 || Add Sun to astrodynamics model using SPICE ToolKit  | Done      | Sun-Earth-satellite (validated, see [commit](https://github.com/TonyDTiger/My_Projects/commit/e045363d198284494153262852be432f93adc091))       |
 || Add J2 perturbation to two-body astrodynamics model    | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/8)      |  |
-|| Add air drag perturbation to two-body astrodynamics model  | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/8)     | atmospheric models (exponential, ...), flat plate, cannonball, panel models (rotational dynamics involved)      |
-|| Add solar radiation pressure perturbation to two-body astrodynamics model   | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/8)      |  flat plate, panel models (rotational dynamics involved)      |
-|| Add gravity gradient perturbation to two-body astrodynamics model   | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/8)      |  rotational dynamics involved      |
+|| Add air drag perturbation to two-body astrodynamics model  | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/8)     | atmospheric models (exponential, ...), flat plate, cannonball, panel models (rotational kinematics involved)      |
+|| Add solar radiation pressure perturbation to two-body astrodynamics model   | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/8)      |  flat plate, panel models (rotational kinematics involved)      |
+|| Add gravity gradient perturbation to two-body astrodynamics model   | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/8)      |  rotational kinematics involved      |
 || Add Earth magnetic field model to astrodynamics model   | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/28)      |       |
 || Add Moon perturbation to two-body astrodynamics model   | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/8)      |       |
 || Augment rotatable solar array wing(s) onto single rigid body rotational astrodynamics model | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/29)   |    |
