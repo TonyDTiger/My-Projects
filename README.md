@@ -1,12 +1,3 @@
-# Setup Instructions
-The following instructions define the steps and resources needed to run the simulator - TBD
-
-## Mathworks Toolboxes and Add-Ons Needed
-* MATLAB Support for MinGW-w64 C/C++ Compiler
-* Simscape
-* Simscape Multibody
-* ~~Aerospace Toolbox~~ Replaced with NASA JPL's SPICE Toolkit
-
 # Project Details
 
 ## Overview
@@ -85,6 +76,12 @@ https://github.com/user-attachments/assets/9e2aed14-e257-4c0b-abb4-4891a4976cd4
 - [ ] Develop unit tests of FSW algorithms and astrodynamics models
 - [ ] Add Monte Carlo capabilities to project, and test run Monte Carlos
 - [ ] ...
+
+## Mathworks Toolboxes and Add-Ons Used
+* MATLAB Support for MinGW-w64 C/C++ Compiler
+* Simscape
+* Simscape Multibody
+* ~~Aerospace Toolbox~~ Replaced with NASA JPL's SPICE Toolkit
 
 ## Notes
 
