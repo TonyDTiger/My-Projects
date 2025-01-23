@@ -38,7 +38,7 @@ https://github.com/user-attachments/assets/9e2aed14-e257-4c0b-abb4-4891a4976cd4
 | Develop astrodynamics model |       |  |                              |
 || Set up simulation environment | In Progress      | task scheduler, solver settings, foundation for Simulink models/blocks/masks, implement configurable .json/.yaml files    |
 || Develop single rigid body rotational astrodynamics model with reaction wheels | Done     | utilizing simscape multibody toolbox     |
-|| Develop single rigid body rotational astrodynamics model with control moment gyroscopes | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/7)    | utilizing simscape multibody toolbox     |
+|| Develop single rigid body rotational astrodynamics model with control moment gyroscopes | [In Progress](https://github.com/TonyDTiger/My_Projects/issues/7)    | utilizing simscape multibody toolbox     |
 || Develop two-body orbit translational astrodynamics model             | Done      | Earth-satellite       |
 || Add Sun to astrodynamics model using SPICE ToolKit  | Done      | Sun-Earth-satellite (validated, see [commit](https://github.com/TonyDTiger/My_Projects/commit/e045363d198284494153262852be432f93adc091))       |
 || Add J2 perturbation to two-body astrodynamics model    | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/8)      |  |
