@@ -11,7 +11,7 @@ This Matlab-Simulink simulator provides a simulation environment to develop and 
 
 ## Preview of Current Progress
 #### Sun Earth Nadir Pointing Mode Over One Orbit Period
-Goal is to align the Sun vector along +Y body axis and constrain the Earth nadir vector along +Z body axis.
+Goal is to align the +Y body axis along the Sun vector and constrain the +Z body axis along the Earth nadir vector.
 
 https://github.com/user-attachments/assets/aba0aee5-d5a9-4b44-8b49-2c1ac8e1a988
 
