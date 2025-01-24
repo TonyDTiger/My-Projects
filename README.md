@@ -121,7 +121,7 @@ https://github.com/user-attachments/assets/25e63f3f-2789-49f2-ae9f-847c4ab967a6
 * Pascel case is used for naming Simulink Models and Libraries (eg. FlightSoftware)
 ### Reference Frame Convention
 * A variable expressed in one frame with respect to a second frame is represented by an underscore and two upper-case letters denoting the frame relation (eg. dcm_WB)
-* A variables' components express expressed in a frame is represented by an underscore and one upper-case letter denoting the reference frame (eg. angular_rates_WB_B)
+* A variables' components expressed in a reference frame is represented by an underscore and one upper-case letter denoting the frame (eg. angular_rates_WB_B)
   * An inertia tensor of the hub about point C, defined in B frame components, is denoted by the following: inertia_C_B
   * A position vector from point A to point B, expressed relative to inertial frame is denoted by the following: position_BA_N
 
