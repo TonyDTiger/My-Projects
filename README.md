@@ -14,6 +14,7 @@ This Matlab-Simulink simulator provides a simulation environment to develop and 
 https://github.com/user-attachments/assets/aba0aee5-d5a9-4b44-8b49-2c1ac8e1a988
 
 #### Slew to Sun Earth Nadir Pointing Mode With 4 Reaction Wheels (pyramid configuration), Simscape multibody video
+Goal is to align the Sun vector along +Y body axis and constrain the Earth nadir vector along +Z body axis.
 
 https://github.com/user-attachments/assets/d3fc6f18-1a44-4a82-9971-3981435ee97a
 
