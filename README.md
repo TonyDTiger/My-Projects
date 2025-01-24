@@ -29,7 +29,7 @@ https://github.com/user-attachments/assets/9e2aed14-e257-4c0b-abb4-4891a4976cd4
 ![Simulink_Data_Inspector_Snapshot](/Plots_and_Videos/01_22_2025_SunNadir_4CMGs_Test/AttitudeError_CMGs_Time_Profile.png)
 
 #### Slew to Sun Earth Nadir Pointing Mode With 4 Control Moment Gyroscopes (pyramid configuration, wheel-only CMG mode), Simscape multibody video
-Note the CMGs can be used as reaction wheels as well! Note gimbal angles and rates are fixed at near zero. 
+Note the CMGs can be used as reaction wheels as well! Gimbal angles and rates are controlled to near zero. 
 
 https://github.com/user-attachments/assets/25e63f3f-2789-49f2-ae9f-847c4ab967a6
 
