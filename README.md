@@ -20,7 +20,7 @@ https://github.com/user-attachments/assets/d3fc6f18-1a44-4a82-9971-3981435ee97a
 ![Simulink_Data_Inspector_Snapshot](/Plots_and_Videos/11_16_2024_SunNadir_PolarOrbit_Test/Simulink_Data_Inspector_Snapshot.png)
 
 #### Slew to Sun Earth Nadir Pointing Mode With 4 Control Moment Gyroscopes (pyramid configuration, conventional CMG mode), Simscape multibody video
-
+Note CMG wheel mass properties were scaled down by 1/10th of the reaction wheel mass properties and operational wheelspeeds set at 200 RPM, this allows us to visually see the gimbals rotating for this demonstration. Also note CMG gimbal and wheel max torque limits were scaled up by 10 of the reaction wheel torque limits, to reduce the time it takes ramp up the wheelspeeds to operational range.
 https://github.com/user-attachments/assets/9e2aed14-e257-4c0b-abb4-4891a4976cd4
 
 ![Simulink_Data_Inspector_Snapshot](/Plots_and_Videos/01_22_2025_SunNadir_4CMGs_Test/AttitudeError_CMGs_Time_Profile.png)
