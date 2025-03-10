@@ -38,58 +38,6 @@ https://github.com/user-attachments/assets/25e63f3f-2789-49f2-ae9f-847c4ab967a6
 ## Simulator Architecture
 ![GNC Matlab Simulator](/Plots_and_Videos/GN&C_Simulator_Architecture.png)
 
-
-## Tasks
-
-| Task                | Sub-Task     |  Status       | Notes                        |
-|---------------------|--------------| --------------|------------------------------|
-| Develop astrodynamics model |       |  |                              |
-|| Set up simulation environment | In Progress      | task scheduler, solver settings, foundation for Simulink models/blocks/masks, implement configurable .json/.yaml files    |
-|| Develop single rigid body rotational astrodynamics model with reaction wheels | Done     | utilizing simscape multibody toolbox     |
-|| Develop single rigid body rotational astrodynamics model with control moment gyroscopes | [In Progress](https://github.com/TonyDTiger/My_Projects/issues/7)    | utilizing simscape multibody toolbox     |
-|| Develop two-body orbit translational astrodynamics model             | Done      | Earth-satellite       |
-|| Add Sun to astrodynamics model using SPICE ToolKit  | Done      | Sun-Earth-satellite (validated, see [commit](https://github.com/TonyDTiger/My_Projects/commit/e045363d198284494153262852be432f93adc091))       |
-|| Add J2 perturbation to two-body astrodynamics model    | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/8)      |  |
-|| Add air drag perturbation to two-body astrodynamics model  | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/8)     | atmospheric models (exponential, ...), flat plate, cannonball, panel models (rotational kinematics involved)      |
-|| Add solar radiation pressure perturbation to two-body astrodynamics model   | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/8)      |  flat plate, panel models (rotational kinematics involved)      |
-|| Add gravity gradient perturbation to two-body astrodynamics model   | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/8)      |  rotational kinematics involved      |
-|| Add Earth magnetic field model to astrodynamics model   | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/28)      |       |
-|| Add Moon perturbation to two-body astrodynamics model   | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/8)      |       |
-|| Augment rotatable solar array wing(s) onto single rigid body rotational astrodynamics model | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/29)   |    |
-| Develop GN&C FSW algorithms   | |      |   |    
-|| Set up flight software environment |  [Not Started](https://github.com/TonyDTiger/My_Projects/issues/30)      | task scheduler (done), Object Oriented Programming architecture framework, solver settings, foundation for Simulink models/blocks/masks    ||
-|| Develop reaction wheel control algorithms   | In Progress     | Nonlinear PD(done), Nonlinear PID with integrator windup limiter (verified, see [commit](https://github.com/TonyDTiger/My_Projects/commit/2af48a42e6087d56dd540e822083168cc7b3e857)), LQR. Implement torque limiter based on BCT RW4 motor torque specification, 0.25 N-m (verified, see [commit](https://github.com/TonyDTiger/My_Projects/commit/135a7ad0dfe1eefa58bf032221b1f0bfadbef94c)). Assume perfect sensors, use sim telemetry. Control law executes at a realistic frequency (20 Hz)
-|| Develop control moment gyroscope control algorithms   |  [In Progress](https://github.com/TonyDTiger/My_Projects/issues/9)    | Nonlinear PD, Nonlinear PID with integrator windup limiter , LQR. Implement torque limiter based on TBD CMG motor torque specification, TBD N-m . Assume perfect sensors, use sim telemetry. Add CMG singularity estimation. Implement CMG mode selection: Wheel-only mode (done), conventional CMG mode (done), variable speed CMG mode. Control law executes at a realistic frequency (20 Hz outer kinematics loop, 100 Hz inner dynamics loop)                            |
-|| Develop basic attitude guidance modes | [In Progress](https://github.com/TonyDTiger/My_Projects/issues/10)    |  Sun point, Sun-nadir point (done), Inertial point (done)                          |
-|| Develop thruster-based translational control algorithms | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/11)      |  impulse delta-Vs                           |                      |
-|| Develop TRIAD attitude determination algorithm | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/12)      |  Sun-Earth TRIAD                            |
-|| Develop magnetic torque rod-based momentum management algorithm | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/18)     |  dependent on Earth magnetic field model development                             |
-|| Develop basic attitude guidance algorithms | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/16)      |  SLERP, keep-out zone avoidance    |
-|| Develop solar array Sun tracking algorithm | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/17)      |  dependent on rotatable solar array wing(s) development                             |
-|| Develop QUEST attitude determination algorithm | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/13)     |  develop after star tracker sensor model has finished                            |
-|| Develop Kalman filter attitude determination algorithm | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/14)      |  develop after star tracker and inertial measurement units sensor models have finished                            |
-|| Develop Kalman filter orbit determination algorithm | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/15)     |  develop after star tracker sensor model has finished                            |
-| Devleop GN&C hardware models       | |      |   |                              |
-|| Develop analog Sun sensor model | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/19)       |   capture perturbations such as: noise, ...                          |
-|| Develop digital Sun sensor model | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/20)        |                              |
-|| Develop star tracker sensor model | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/21)       |  develop after celestial star catalog model has finished. capture perturbations such as: noise, ...                           |
-|| Develop inertial measurement unit sensor model | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/22)      |  accelerometer and gyro, capture perturbations such as: drift bias, scale factor, noise                           |
-|| Develop GPS sensor model | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/23)      |  develop after GPS satellites dynamics model has finished                            |
-|| Develop reaction wheel actuator model | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/24)      |  capture perturbations such as: friction, wheel imbalance, back EMF                            |
-|| Develop reaction wheel tachometer sensor model | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/25)        |  capture perturbations such as: noise, ...                           |
-|| Develop magnetometer sensor model | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/26)       |  develop after Earth magnetic field dynamics model has finished                             |
-|| Develop torque rod actuator model | [Not Started](https://github.com/TonyDTiger/My_Projects/issues/27)       |  develop after Earth magnetic field dynamics model has finished                            |
-
-## Progress
-
-- [x] Functional first-cut simulation
-- [x] Define project tasks (this is iterative)
-- [ ] Complete Kanban board of tasks
-- [ ] Document reference frames used: inertial frame, body frame, solar system barycenter
-- [ ] Develop unit tests of FSW algorithms and astrodynamics models
-- [ ] Add Monte Carlo capabilities to project, and test run Monte Carlos
-- [ ] ...
-
 ## Notes
 
 **Resources**: Links to useful resources or documents
