@@ -30,7 +30,7 @@ The plot below shows a rigid body rotating about three axes with an optimized PI
 
 ![system_response_plots](https://github.com/user-attachments/assets/9fad5468-a692-4587-bcec-47258f505f44)
 
-It's interesting to see that the optimizer zeroed out the integral gains. This is due to the lack of perturbations and real life effects being modeled, which would cause the controller to potentially have a steady state error offset. Thus, no integral contribution is needed if there's no steady state error offset.
+To meet the lower settling time, the optimizer increased the controller response and gains. It's interesting to see that the optimizer zeroed out the integral gains. This is due to the lack of perturbations and real life effects being modeled, which would cause the controller to potentially have a steady state error offset. Thus, no integral contribution is needed if there's no steady state error offset.
 
 #### Three Axis PID Controller Tuning for an Oscillatory Reference Trajectory
 The plot below shows a rigid body rotating about three axes with the optimized PID controller in the scenario above to control the rigid body to the desired oscillatory reference attitude trajectory.
