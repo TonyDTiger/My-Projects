@@ -22,7 +22,7 @@ The plot below shows the Bode plots for the closed loop system.
 ---------------
 
 #### Three Axis PID Controller Tuning for a Constant Reference Trajectory
-The plot below shows a rigid body rotating about three axes with a PD controller to control the rigid body to the desired reference attitude (5 deg X-axis, -10 deg Y-axis, 15 deg Z-axis). The controller was tuned using pole placement (full state feedback) to achieve the desired settling times and maximum overshoot percentages. Modified Rodrigues Parameters (MRPs) are used as the attitude representation, as it allows a simple and convenient set of linearized rigid body attitude dynamics.
+The plot below shows a rigid body rotating about three axes with a PD controller to control the rigid body to the desired reference attitude (5 deg X-axis, -10 deg Y-axis, 15 deg Z-axis). The controller was tuned using pole placement (full state feedback) to achieve the desired settling times and maximum overshoot percentages. 
 
 ![system_response_plots](https://github.com/user-attachments/assets/58f9cf1a-2333-4529-974b-d6758da2289e)
 
