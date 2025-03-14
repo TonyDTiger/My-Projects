@@ -23,7 +23,7 @@ The optimizer can use some improvement, as it resulted in missing the desired se
 ![closed_loop_bode_plots](https://github.com/user-attachments/assets/45536aff-b34c-49ce-9704-8ad24b3fed0a)
 
 #### Single Axis PID Controller Tuning for an Oscillatory Reference Trajectory
-The plot below shows a rigid body rotating about three axes using the same optimized PID controller in the scenario above to control the rigid body to the desired oscillatory reference attitude trajectory.
+The plot below shows a rigid body rotating about three axes using the same optimized PID controller in the scenario above to control the rigid body to the desired oscillatory reference attitude trajectory, with a frequency of 0.0067 Hz (1/150).
 
 ![system_response_plots_oscillatory_reference](https://github.com/user-attachments/assets/98f4adc2-3fc8-46a8-bf0b-8d097b385059)
 
@@ -44,7 +44,7 @@ The plot below shows a rigid body rotating about three axes with an "optimized" 
 The optimizer can use some improvement, as it resulted in missing the desired settling times and maximum overshoot percentages. To meet the lower settling time, the optimizer increased the controller response and gains. It's interesting to see that the optimizer zeroed out the integral gains. This is due to the lack of perturbations and real life effects being modeled, which would cause the controller to potentially have a steady state error offset. Thus, no integral contribution is needed if there's no steady state error offset.
 
 #### Three Axis PID Controller Tuning for an Oscillatory Reference Trajectory
-The plot below shows a rigid body rotating about three axes using the same optimized PID controller in the scenario above to control the rigid body to the desired oscillatory reference attitude trajectory.
+The plot below shows a rigid body rotating about three axes using the same optimized PID controller in the scenario above to control the rigid body to the desired oscillatory reference attitude trajectory, with a frequency of 0.00167 Hz (1/600).
 
 ![system_response_plots_oscillatory_reference](https://github.com/user-attachments/assets/dd42487b-c1e4-4b5b-9254-ffe6b2ce2bd2)
 
