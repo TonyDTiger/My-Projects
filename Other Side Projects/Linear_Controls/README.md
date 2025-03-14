@@ -9,19 +9,25 @@ This project of set of projects is to apply linear control theory and understand
 
 ## Preview of Current Progress
 
-#### Single Axis PD Controller Tuning
-The plot below shows a rigid body rotating about one axis with an optimized PD controller to control the rigid body to the desired reference angle (30 deg) based on the settling time and maximum overshoot percentage.
+#### Single Axis Attitude PD Controller Tuning for a Constant Reference Trajectory
+The plot below shows a rigid body rotating about a single axis with a PD controller to control the rigid body to the desired reference angle (30 deg Z-axis), mass property of the rigid body has a moment of inertia of 85 kg*m^2. The controller was tuned using pole placement (full state feedback) to achieve the desired 90s settling time and zero maximum overshoot percentage. 
 
-![system_response_plots](https://github.com/user-attachments/assets/6cb42494-fe66-440f-87ee-b325d44ac607)
+![system_response_plot](https://github.com/user-attachments/assets/a0476f74-4853-4d86-bab5-0f536522e92c)
+
+The plot below shows a rigid body rotating about a single axis with an optimized PID controller to control the rigid body to the desired reference angle (30 deg Z-axis). This controller started with the the PD controller gains from the scenario above, and was optimized with integral contribution to achieve the settling times and maximum overshoot percentages. For this scenario, the desired settling time decreased to 60 seconds relative to the scenario above.
+
+![system_response_plots](https://github.com/user-attachments/assets/92a4c809-1067-479d-8e1b-2c1573eed4d5)
 
 The plot below shows the Bode plots for the closed loop system.
 
-![bode_plots](https://github.com/user-attachments/assets/47f5c4f3-7f5f-4f65-9932-0990d6ebf57f)
+![closed_loop_bode_plots](https://github.com/user-attachments/assets/45536aff-b34c-49ce-9704-8ad24b3fed0a)
+
+
 
 ---------------
 
-#### Three Axis PID Controller Tuning for a Constant Reference Trajectory
-The plot below shows a rigid body rotating about three axes with a PD controller to control the rigid body to the desired reference attitude (5 deg X-axis, -10 deg Y-axis, 15 deg Z-axis). The controller was tuned using pole placement (full state feedback) to achieve the desired settling times and maximum overshoot percentages. 
+#### Three Axis Attitude PID Controller Tuning for a Constant Reference Trajectory
+The plot below shows a rigid body rotating about three axes with a PD controller to control the rigid body to the desired reference attitude (5 deg X-axis, -10 deg Y-axis, 15 deg Z-axis). The controller was tuned using pole placement (full state feedback) to achieve the desired 90s settling times and zero maximum overshoot percentages. 
 
 ![system_response_plots](https://github.com/user-attachments/assets/02461306-ec9b-4ab8-8059-b22ed336d479)
 
