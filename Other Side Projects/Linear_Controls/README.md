@@ -27,7 +27,7 @@ The plot below shows a rigid body rotating about three axes using the same optim
 
 ![system_response_plots_oscillatory_reference](https://github.com/user-attachments/assets/98f4adc2-3fc8-46a8-bf0b-8d097b385059)
 
-The closed loop system response has a phase lag relative to the reference attitude trajcetory, such that the rigid body's attitude is trailing behind the reference attitude. Potentially a phase lead compensator can be added to the controller to increase the controller's response to the moving reference trajectory. 
+The closed loop system response has a phase lag relative to the reference attitude trajcetory, such that the rigid body is trailing behind the reference angle. Potentially a phase lead compensator can be added to the controller to increase the controller's response to the moving reference trajectory. 
 
 ---------------
 
