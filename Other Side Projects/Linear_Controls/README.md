@@ -14,11 +14,11 @@ The plot below shows a rigid body rotating about a single axis with a PD control
 
 ![system_response_plot](https://github.com/user-attachments/assets/a0476f74-4853-4d86-bab5-0f536522e92c)
 
-The plot below shows a rigid body rotating about a single axis with an optimized PID controller to control the rigid body to the desired reference angle (30 deg Z-axis). This controller started with the the PD controller gains from the scenario above, and was optimized with integral contribution to achieve the settling times and maximum overshoot percentages. For this scenario, the desired settling time decreased to 60 seconds relative to the scenario above.
+The plot below shows a rigid body rotating about a single axis with an "optimized" PID controller to control the rigid body to the desired reference angle (30 deg Z-axis). This controller started with the the PD controller gains from the scenario above, and was optimized with integral contribution to achieve the settling times and maximum overshoot percentages. For this scenario, the desired settling time decreased to 60 seconds relative to the scenario above.
 
 ![system_response_plots](https://github.com/user-attachments/assets/92a4c809-1067-479d-8e1b-2c1573eed4d5)
 
-The plot below shows the Bode plots for the closed loop system.
+The optimizer can use some improvement, as it resulted in missing the desired settling time and maximum overshoot percentage. The plot below shows the Bode plots for the closed loop system.
 
 ![closed_loop_bode_plots](https://github.com/user-attachments/assets/45536aff-b34c-49ce-9704-8ad24b3fed0a)
 
@@ -32,11 +32,11 @@ The plot below shows a rigid body rotating about three axes with a PD controller
 ![system_response_plots](https://github.com/user-attachments/assets/02461306-ec9b-4ab8-8059-b22ed336d479)
 
 
-The plot below shows a rigid body rotating about three axes with an optimized PID controller to control the rigid body to the desired reference attitude (5 deg X-axis, 10 deg Y-axis, -15 deg Z-axis). This controller started with the the PD controller gains from the scenario above, and was optimized with integral contribution to achieve the settling times and maximum overshoot percentages. For this scenario, the desired settling time decreased to 60 seconds relative to the scenario above.
+The plot below shows a rigid body rotating about three axes with an "optimized" PID controller to control the rigid body to the desired reference attitude (5 deg X-axis, 10 deg Y-axis, -15 deg Z-axis). This controller started with the the PD controller gains from the scenario above, and was optimized with integral contribution to achieve the settling times and maximum overshoot percentages. For this scenario, the desired settling time decreased to 60 seconds relative to the scenario above.
 
 ![system_response_plots](https://github.com/user-attachments/assets/179f81f8-3384-4b28-a689-33e23b48d5fa)
 
-To meet the lower settling time, the optimizer increased the controller response and gains. It's interesting to see that the optimizer zeroed out the integral gains. This is due to the lack of perturbations and real life effects being modeled, which would cause the controller to potentially have a steady state error offset. Thus, no integral contribution is needed if there's no steady state error offset.
+The optimizer can use some improvement, as it resulted in missing the desired settling times and maximum overshoot percentages. To meet the lower settling time, the optimizer increased the controller response and gains. It's interesting to see that the optimizer zeroed out the integral gains. This is due to the lack of perturbations and real life effects being modeled, which would cause the controller to potentially have a steady state error offset. Thus, no integral contribution is needed if there's no steady state error offset.
 
 #### Three Axis PID Controller Tuning for an Oscillatory Reference Trajectory
 The plot below shows a rigid body rotating about three axes with the optimized PID controller in the scenario above to control the rigid body to the desired oscillatory reference attitude trajectory.
