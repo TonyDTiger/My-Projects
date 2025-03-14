@@ -16,7 +16,7 @@ The plot below shows a rigid body rotating about a single axis with a PD control
 
 The plot below shows a rigid body rotating about a single axis with an "optimized" PID controller to control the rigid body to the desired reference angle (30 deg Z-axis). This controller started with the the PD controller gains from the scenario above, and was optimized with integral contribution to achieve the settling times and maximum overshoot percentages. For this scenario, the desired settling time decreased to 60 seconds relative to the scenario above.
 
-![system_response_plots](https://github.com/user-attachments/assets/92a4c809-1067-479d-8e1b-2c1573eed4d5)
+![system_response_plots](https://github.com/user-attachments/assets/cbe750f0-140e-48bf-b5e7-8a7dac3fa7b2)
 
 The optimizer can use some improvement, as it resulted in missing the desired settling time and maximum overshoot percentage. The plot below shows the Bode plots for the closed loop system.
 
