@@ -16,11 +16,11 @@ The plot below shows a rigid body rotating about a single axis with a PD control
 
 The plot below shows a rigid body rotating about a single axis with an "optimized" PID controller to control the rigid body to the desired reference angle (30 deg Z-axis). This controller started with the the PD controller gains from the scenario above, and was optimized with integral contribution to achieve the settling times and maximum overshoot percentages. For this scenario, the desired settling time decreased to 60 seconds relative to the scenario above.
 
-![system_response_plots](https://github.com/user-attachments/assets/cbe750f0-140e-48bf-b5e7-8a7dac3fa7b2)
+![system_response_plots](https://github.com/user-attachments/assets/c59083e9-9fc3-4fb5-ad2c-19169d7c41b3)
 
-The optimizer can use some improvement, as it resulted in missing the desired settling time and maximum overshoot percentage. The plot below shows the Bode plots for the closed loop system.
+The optimizer can use some improvement, as it resulted in missing the desired settling time and maximum overshoot percentage. The integrator contribution was zeroed intentionally as it was found that it did not affect the controller's performance. The plot below shows the Bode plots for the closed loop system, PD controller.
 
-![closed_loop_bode_plots](https://github.com/user-attachments/assets/45536aff-b34c-49ce-9704-8ad24b3fed0a)
+![closed_loop_bode_plots](https://github.com/user-attachments/assets/16b0991f-b883-4bb1-bdbb-5247d8955932)
 
 #### Single Axis PID Controller Tuning for an Oscillatory Reference Trajectory
 The plot below shows a rigid body rotating about three axes using the same optimized PID controller in the scenario above to control the rigid body to the desired oscillatory reference attitude trajectory, with a frequency of 0.0067 Hz (1/150).
