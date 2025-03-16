@@ -22,12 +22,14 @@ The optimizer can use some improvement, as it resulted in missing the desired se
 
 ![closed_loop_bode_plots](https://github.com/user-attachments/assets/16b0991f-b883-4bb1-bdbb-5247d8955932)
 
+
+
 #### Single Axis PID Controller Tuning for an Oscillatory Reference Trajectory
 The plot below shows a rigid body rotating about three axes using the same optimized PID controller in the scenario above to control the rigid body to the desired oscillatory reference attitude trajectory, with a frequency of 0.0067 Hz (1/150).
 
 ![system_response_plots_oscillatory_reference](https://github.com/user-attachments/assets/98f4adc2-3fc8-46a8-bf0b-8d097b385059)
 
-The closed loop system response has a phase lag relative to the reference attitude trajcetory, such that the rigid body is trailing behind the reference angle. Potentially a phase lead compensator can be added to the controller to increase the controller's response to the moving reference trajectory. 
+The closed loop system response has a phase lag relative to the reference attitude trajectory, such that the rigid body is trailing behind the reference angle. Potentially a phase lead compensator can be added to the controller to increase the controller's response to the moving reference trajectory. 
 
 ---------------
 
