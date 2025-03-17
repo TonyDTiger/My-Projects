@@ -18,18 +18,31 @@ The plot below shows a rigid body rotating about a single axis with an "optimize
 
 ![system_response_plots](https://github.com/user-attachments/assets/c59083e9-9fc3-4fb5-ad2c-19169d7c41b3)
 
-The optimizer can use some improvement, as it resulted in missing the desired settling time and maximum overshoot percentage. The integrator contribution was zeroed intentionally as it was found that it did not affect the controller's performance. The plot below shows the Bode plots for the closed loop system, PD controller.
-
-![closed_loop_bode_plots](https://github.com/user-attachments/assets/16b0991f-b883-4bb1-bdbb-5247d8955932)
-
-
+The optimizer can use some improvement, as it resulted in missing the desired settling time and maximum overshoot percentage. The integrator contribution was zeroed intentionally as it was found that it did not affect the controller's performance.
 
 #### Single Axis PID Controller Tuning for an Oscillatory Reference Trajectory
 The plot below shows a rigid body rotating about three axes using the same optimized PID controller in the scenario above to control the rigid body to the desired oscillatory reference attitude trajectory, with a frequency of 0.0067 Hz (1/150).
 
-![system_response_plots_oscillatory_reference](https://github.com/user-attachments/assets/98f4adc2-3fc8-46a8-bf0b-8d097b385059)
+![system_response_plots_oscillatory_reference](https://github.com/user-attachments/assets/31dfdf25-f100-402d-b9f6-9cb7228bbf5a)
 
-The closed loop system response has a phase lag relative to the reference attitude trajectory, such that the rigid body is trailing behind the reference angle. Potentially a phase lead compensator can be added to the controller to increase the controller's response to the moving reference trajectory. 
+The closed loop system response has a phase lag relative to the reference attitude trajectory, such that the rigid body is trailing behind the reference angle. Potentially a phase lead compensator can be added to the controller to increase the controller's response to the moving reference trajectory or the PD controller gains can be increased to increase the closed loop system's response. The plot below shows the Bode plots for the closed loop system.
+
+![closed_loop_bode_plots](https://github.com/user-attachments/assets/ab5e32e8-0e1a-4657-b89f-d937da09bc16)
+
+There is ample gain and phase margin to increase the controller gains, thus with greatly increased proportional and derivative gains results in the improved closed loop system's response as shown below,
+
+![system_response_plots_oscillatory_reference_increased_gains](https://github.com/user-attachments/assets/3a560a5b-9886-4aff-a845-9f5ff4b89b55)
+
+Even with the increased proportional and derivative gains, there is still ample gain and phase margin,
+
+![closed_loop_bode_plots_increased_gains](https://github.com/user-attachments/assets/22c99da9-ec0c-41ba-86ac-43240ea26bef)
+
+However in a realistic sitation, the torque required for this system is extremely high. As shown above, the required control torque peaked at 100 N-m. By introducing the control torque limiter at +/-1 N-m for a more realistic situation, this nonlinear effect affects the closed loop system's response as shown below.
+
+![system_response_plots_oscillatory_reference_increased_gains_with_torque_limits](https://github.com/user-attachments/assets/99fdb821-661f-4e78-9311-26fa29c82d50)
+
+With the control torque limited at 1 N-m, the closed loop system is able to maintain the desired oscllatory reference trajectory once it has converged closer to the reference trajectory. To resolve the initial overshoot and oscillatory closed loop system response, a potential solution is to introduce a guidance trajectory to smooth out the closed loop system's response during the initial minute.
+
 
 ---------------
 
