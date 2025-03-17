@@ -37,7 +37,7 @@ Even with the increased proportional and derivative gains, there is still ample 
 
 ![closed_loop_bode_plots_increased_gains](https://github.com/user-attachments/assets/22c99da9-ec0c-41ba-86ac-43240ea26bef)
 
-Note that the increased proportional and derivative gains shifted the magnitude curve rightwards in the magnitude plot, increasing the controller bandwidth frequency and thus increasing the closed loop system's response to higher frequencies. However in a realistic sitation, the torque required for this system is extremely high. As shown above, the required control torque peaked at 100 N-m. By introducing the control torque limiter at +/-1 N-m for a more realistic situation, this nonlinear effect affects the closed loop system's response as shown below.
+Note that the increased proportional and derivative gains shifted the magnitude curve rightwards in the magnitude plot, increasing the controller bandwidth frequency from ~0.02 Hz to ~0.4 Hz and thus increasing the closed loop system's response to higher frequencies. However in a realistic sitation, the torque required for this system is extremely high. As shown above, the required control torque peaked at 100 N-m. By introducing the control torque limiter at +/-1 N-m for a more realistic situation, this nonlinear effect affects the closed loop system's response as shown below.
 
 ![system_response_plots_oscillatory_reference_increased_gains_with_torque_limits](https://github.com/user-attachments/assets/99fdb821-661f-4e78-9311-26fa29c82d50)
 
