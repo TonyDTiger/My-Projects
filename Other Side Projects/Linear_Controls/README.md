@@ -41,7 +41,7 @@ Note that the increased proportional and derivative gains shifted the magnitude 
 
 ![system_response_plots_oscillatory_reference_increased_gains_with_torque_limits](https://github.com/user-attachments/assets/99fdb821-661f-4e78-9311-26fa29c82d50)
 
-With the control torque limited at 1 N-m, the closed loop system is able to maintain the desired oscllatory reference trajectory once it has converged closer to the reference trajectory. To resolve the initial overshoot and oscillatory closed loop system response, a potential solution is to introduce a guidance trajectory to smooth out the closed loop system's response during the initial minute.
+With the control torque limited at 1 N-m, the closed loop system is able to maintain the desired oscillatory reference trajectory once it has converged closer to the reference trajectory. To resolve the initial overshoot and oscillatory closed loop system response, a potential solution is to introduce a guidance trajectory to smooth out the closed loop system's response during the initial minute.
 
 
 ---------------
