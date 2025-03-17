@@ -33,11 +33,11 @@ There is ample gain and phase margin to increase the controller gains, thus with
 
 ![system_response_plots_oscillatory_reference_increased_gains](https://github.com/user-attachments/assets/3a560a5b-9886-4aff-a845-9f5ff4b89b55)
 
-Even with the increased proportional and derivative gains, there is still ample gain and phase margin,
+Even with the increased proportional and derivative gains, there is still ample gain and phase margin as shown in the Bode plots below.
 
 ![closed_loop_bode_plots_increased_gains](https://github.com/user-attachments/assets/22c99da9-ec0c-41ba-86ac-43240ea26bef)
 
-However in a realistic sitation, the torque required for this system is extremely high. As shown above, the required control torque peaked at 100 N-m. By introducing the control torque limiter at +/-1 N-m for a more realistic situation, this nonlinear effect affects the closed loop system's response as shown below.
+Note that the increased proportional and derivative gains shifted the magnitude curve rightwards in the magnitude plot, increasing the controller bandwidth frequency and thus increasing the closed loop system's response to higher frequencies. However in a realistic sitation, the torque required for this system is extremely high. As shown above, the required control torque peaked at 100 N-m. By introducing the control torque limiter at +/-1 N-m for a more realistic situation, this nonlinear effect affects the closed loop system's response as shown below.
 
 ![system_response_plots_oscillatory_reference_increased_gains_with_torque_limits](https://github.com/user-attachments/assets/99fdb821-661f-4e78-9311-26fa29c82d50)
 
