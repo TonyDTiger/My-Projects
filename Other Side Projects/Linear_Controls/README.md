@@ -21,7 +21,7 @@ The plot below shows a rigid body rotating about a single axis with an "optimize
 The optimizer can use some improvement, as it resulted in missing the desired settling time and maximum overshoot percentage. The integrator contribution was zeroed intentionally as it was found that it did not affect the controller's performance. The next section will evaluate the controller's performance with an oscillatory reference trajectory.
 
 #### Single Axis PID Controller Manual Tuning for an Oscillatory Reference Trajectory
-The plot below shows a rigid body rotating about three axes using the same PD controller in the scenario above to control the rigid body to the desired oscillatory reference attitude trajectory, with a frequency of 0.0067 Hz (1/150). Performance metrics such as settling time and max overshoot percentage are not evaluated, instead the attitude error time profile will be evaluated.
+The plot below shows a rigid body rotating about a single axis using the same PD controller in the scenario above to control the rigid body to the desired oscillatory reference attitude trajectory, with a frequency of 0.0067 Hz (1/150). Performance metrics such as settling time and max overshoot percentage are not evaluated, instead the attitude error time profile will be evaluated.
 
 ![system_response_plots_cosine_reference](https://github.com/user-attachments/assets/ff1fb3d4-88d4-46bb-ab57-1801bd0da617)
 
@@ -55,21 +55,28 @@ To reduce the the bounded steady state attitude error even further, potentially 
 
 ---------------
 
-#### Three Axis Attitude PID Controller Tuning for a Constant Reference Trajectory
-The plot below shows a rigid body rotating about three axes with a PD controller to control the rigid body to the desired reference attitude (5 deg X-axis, -10 deg Y-axis, 15 deg Z-axis). The controller was tuned using pole placement (full state feedback) to achieve the desired 90s settling times and zero maximum overshoot percentages. 
+#### Three Axis PID Controller Tuning for a Constant Reference Trajectory
+The plot below shows a rigid body rotating about three axes with a PD controller to control the rigid body to the desired reference attitude (15 deg X-axis, -15 deg Y-axis, 15 deg Z-axis), mass property of the rigid body has a diagonal moments of inertia of: 80.6, 187.2356, 148.0980 [Ixx, Iyy, Izz] kg*m^2 with zero products of inertia. The controller was tuned using pole placement (full state feedback) to achieve the desired 60 second settling times and maximum overshoot percentages. Modified Rodrigues Parameters (MRPs) are used as the attitude representation, as it allows a simple and convenient set of linearized rigid body attitude dynamics.
 
-![system_response_plots](https://github.com/user-attachments/assets/02461306-ec9b-4ab8-8059-b22ed336d479)
-
-
-The plot below shows a rigid body rotating about three axes with an "optimized" PID controller to control the rigid body to the desired reference attitude (5 deg X-axis, 10 deg Y-axis, -15 deg Z-axis). This controller started with the the PD controller gains from the scenario above, and was optimized with integral contribution to achieve the settling times and maximum overshoot percentages. For this scenario, the desired settling time decreased to 60 seconds relative to the scenario above.
-
-![system_response_plots](https://github.com/user-attachments/assets/179f81f8-3384-4b28-a689-33e23b48d5fa)
-
-The optimizer can use some improvement, as it resulted in missing the desired settling times and maximum overshoot percentages. To meet the lower settling time, the optimizer increased the controller response and gains. It's interesting to see that the optimizer zeroed out the integral gains. This is due to the lack of perturbations and real life effects being modeled, which would cause the controller to potentially have a steady state error offset. Thus, no integral contribution is needed if there's no steady state error offset.
+![system_response_plots_15degZ_-15degY_15degX_60sec](https://github.com/user-attachments/assets/ea759bfd-a6a1-472f-b0a4-f56c884c7c9d)
 
 #### Three Axis PID Controller Tuning for an Oscillatory Reference Trajectory
-The plot below shows a rigid body rotating about three axes using the same optimized PID controller in the scenario above to control the rigid body to the desired oscillatory reference attitude trajectory, with a frequency of 0.00167 Hz (1/600).
+The plot below shows a rigid body rotating about three axes with the same PD controller in the scenario above to control the rigid body to a desired oscillatory reference attitude trajectory with a 300s time period or 0.0033 Hz frequency. Modified Rodrigues Parameters (MRPs) are used as the attitude representation, as it allows a simple and convenient set of linearized rigid body attitude dynamics.
 
-![system_response_plots_oscillatory_reference](https://github.com/user-attachments/assets/dd42487b-c1e4-4b5b-9254-ffe6b2ce2bd2)
+![system_response_plots_sine_reference_15degZ_-15degY_15degX_300secCycle](https://github.com/user-attachments/assets/cba6f799-f6d0-4b7e-83f7-158aae3eb37a)
 
-The closed loop system response has a phase lag relative to the reference attitude trajcetory, such that the rigid body's attitude is trailing behind the reference attitude. Potentially a phase lead compensator can be added to the controller to increase the controller's response to the moving reference trajectory. 
+The closed loop system response has a phase lag relative to the reference attitude trajectory, such that the rigid body's attitude is trailing behind the reference attitude. Potentially a phase lead compensator can be added to the controller to increase the controller's response to the moving reference trajectory. The same approach is taken here as shown above in the single axis scenario by evaluating the gain and phase margins via Bode plots for the closed loop system, which is assumed to be nearly similar for all three body axes (X, Y, Z) as they have been pole placed with the same settling times.
+
+![closed_loop_bode_plots_XYZ_axes_60sec](https://github.com/user-attachments/assets/5c315355-142c-43c6-9872-e2d9450e5403)
+
+There is ample gain and phase margin to increase the controller gains, thus with greatly increased proportional and derivative gains along with integrator contribution results in the improved closed loop system's response as shown below,
+
+![system_response_plots_sine_reference_15degZ_-15degY_15degX_300secCycle_increased_gains_with_torque_limits_with_2degintegrator](https://github.com/user-attachments/assets/edbd1ace-c212-4d8d-948a-a41e960e45dc)
+
+For the final PID controller, the following Body plots show the remaining gain and phase margins for each body axis.
+
+| X Axis  | Y Axis | Z Axis |
+| ------------- | ------------- | ------------- |
+| ![closed_loop_bode_plots_increased_gains_X_axis](https://github.com/user-attachments/assets/51e03862-6f28-492a-9899-7d7688f759b4)  | ![closed_loop_bode_plots_increased_gains_Y_axis](https://github.com/user-attachments/assets/0d1cc3ba-3b89-4f53-8fdc-ef0f4cb8dd44)  |   ![closed_loop_bode_plots_increased_gains_Z_axis](https://github.com/user-attachments/assets/e1efd7f4-d4d1-493f-ba3f-aaa7c0d660e0)  |
+
+Here each axis has different gain and phase margins due to the manual tuning process. 
