@@ -11,18 +11,22 @@ This Matlab-Simulink simulator provides a simulation environment to develop and 
 
 ## Preview of Current Progress
 #### Sun Earth Nadir Pointing Mode Over One Orbit Period
-The goal of this scenario is to align the +Y body axis along the Sun vector and constrain the +Z body axis along the Earth nadir vector. A polar orbit during the spring equinox is simulated so that the Sun vector can be near perpendicular to the Earth nadir vector relative to the spacecraft's body frame.
+The goal of this scenario is to align the +Y body axis along the Sun vector and constrain the +Z body axis along the Earth nadir vector. A polar orbit during the spring equinox is simulated so that the Sun vector can be near perpendicular to the Earth nadir vector relative to the spacecraft, this allows us to easily confirm that the Sun Earth Nadir Pointing mode functions correctly.
 
 https://github.com/user-attachments/assets/aba0aee5-d5a9-4b44-8b49-2c1ac8e1a988
 
 #### Slew to Sun Earth Nadir Pointing Mode With 4 Reaction Wheels (pyramid configuration), Simscape multibody video
 
+The animation below shows the same scenario above using the Simscape Multibody visualization utility. A rigid body space vehicle is modeled using a PID control law with four reaction wheels to achieve the Sun Earth Nadir Pointing mode. The PID controller gains were selected using pole placement and manual tuning, as shown in the Linear_Controls project folder ("Three Axis PID Controller Tuning for a Constant Reference Trajectory" case).
+
 https://github.com/user-attachments/assets/c37d2687-ed7f-4eae-b79b-49ca942d5012
 
 ![Simulink_Data_Inspector_Snapshot](https://github.com/user-attachments/assets/e3c9b95a-5b88-4972-9128-f7dad3abb5c6)
 
+Note the control law demands very high and unrealistic reaction wheel torques. This can be resolved by using a torque limiter (nonlinear effect), attitude guidance law, or reducing the PID controller's gains/responsiveness. 
+
 #### Slew to Sun Earth Nadir Pointing Mode With 4 Control Moment Gyroscopes (pyramid configuration, conventional CMG mode), Simscape multibody video
-Note Control Moment Gyroscope (CMG) wheel mass properties were scaled down by factor of 10 of the reaction wheel mass properties and operational wheelspeeds set at 200 RPM, this allows us to visually see the gimbals rotating for this demonstration. This also highlights one of the main benefits of CMGs: given a smaller set of wheels, they can provide the same or potentially higher torque capability compared to the reaction wheels mentioned above. Also note CMG gimbal and wheel max torque limits were scaled up by factor of 10 of the reaction wheel max torque limits, this was done to reduce the time it takes ramp up the wheelspeeds to operational range for demonstration purposes.
+For this simulation, the four reaction wheels above are replaced with four Control Moment Gyroscopes (CMGs). The CMG wheel mass properties were scaled down by factor of 10 of the reaction wheel mass properties and operational wheelspeeds set at 200 RPM, this allows us to visually see the gimbals rotating for this demonstration. This also highlights one of the main benefits of CMGs: given a smaller set of wheels, they can provide the same or potentially higher torque capability compared to the reaction wheels mentioned above. Also note CMG gimbal and wheel max torque limits were scaled up by factor of 10 of the reaction wheel max torque limits, this was done to reduce the time it takes ramp up the wheelspeeds to operational range for demonstration purposes.
 
 https://github.com/user-attachments/assets/9e2aed14-e257-4c0b-abb4-4891a4976cd4
 
