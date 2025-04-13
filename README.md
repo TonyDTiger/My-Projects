@@ -19,7 +19,7 @@ https://github.com/user-attachments/assets/aba0aee5-d5a9-4b44-8b49-2c1ac8e1a988
 
 The animation below shows the same scenario above using the Simscape Multibody visualization utility. A rigid body space vehicle is modeled using a PID control law with four reaction wheels to achieve the Sun Earth Nadir Pointing mode. The PID controller gains were selected using pole placement and manual tuning, as shown in the Linear_Controls project folder ("Three Axis PID Controller Tuning for a Constant Reference Trajectory" case).
 
-https://github.com/user-attachments/assets/c37d2687-ed7f-4eae-b79b-49ca942d5012
+https://github.com/user-attachments/assets/bae9cc37-9021-4564-9c98-de7bfb2b1879
 
 ![Simulink_Data_Inspector_Snapshot](https://github.com/user-attachments/assets/e3c9b95a-5b88-4972-9128-f7dad3abb5c6)
 
