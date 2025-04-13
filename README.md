@@ -23,7 +23,11 @@ https://github.com/user-attachments/assets/c37d2687-ed7f-4eae-b79b-49ca942d5012
 
 ![Simulink_Data_Inspector_Snapshot](https://github.com/user-attachments/assets/e3c9b95a-5b88-4972-9128-f7dad3abb5c6)
 
-Note the control law demands very high and unrealistic reaction wheel torques. This can be resolved by using a torque limiter (nonlinear effect), attitude guidance law, or reducing the PID controller's gains/responsiveness. 
+Note the control law demands very high and unrealistic reaction wheel torques. This can be resolved by using a torque limiter (nonlinear effect), attitude guidance law, or reducing the PID controller's gains/responsiveness. Taking the latter approach, the system response is shown below with more realistic reaction wheel torques but a longer settling time.
+
+![Sun+YNadir+Z_03212024Ephemeris_Sim_Results](https://github.com/user-attachments/assets/48a4c422-3673-4b73-87d5-0ee304f9817f)
+
+As a simulation validation check, the exchange of angular momentum between the space vehicle and reaction wheels is shown to be conserved by confirming that the total system angular momentum is nearly zero at all times given there are no external torques acting on the system.
 
 #### Slew to Sun Earth Nadir Pointing Mode With 4 Control Moment Gyroscopes (pyramid configuration, conventional CMG mode), Simscape multibody video
 For this simulation, the four reaction wheels above are replaced with four Control Moment Gyroscopes (CMGs). The CMG wheel mass properties were scaled down by factor of 10 of the reaction wheel mass properties and operational wheelspeeds set at 200 RPM, this allows us to visually see the gimbals rotating for this demonstration. This also highlights one of the main benefits of CMGs: given a smaller set of wheels, they can provide the same or potentially higher torque capability compared to the reaction wheels mentioned above. Also note CMG gimbal and wheel max torque limits were scaled up by factor of 10 of the reaction wheel max torque limits, this was done to reduce the time it takes ramp up the wheelspeeds to operational range for demonstration purposes.
