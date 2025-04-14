@@ -80,3 +80,21 @@ For the final PID controller, the following Body plots show the remaining gain a
 | ![closed_loop_bode_plots_increased_gains_X_axis](https://github.com/user-attachments/assets/51e03862-6f28-492a-9899-7d7688f759b4)  | ![closed_loop_bode_plots_increased_gains_Y_axis](https://github.com/user-attachments/assets/0d1cc3ba-3b89-4f53-8fdc-ef0f4cb8dd44)  |   ![closed_loop_bode_plots_increased_gains_Z_axis](https://github.com/user-attachments/assets/e1efd7f4-d4d1-493f-ba3f-aaa7c0d660e0)  |
 
 Here each axis has different gain and phase margins due to the manual tuning process. 
+
+#### Three Axis PID Controller Tuning for a Piecewise Reference Trajectory
+The plot below shows a rigid body rotating about three axes with the same PID controller in the scenario above to control the rigid body to follow a desired piecewise reference attitude trajectory with a 150s slew time and desired final reference attitude (ZYX rotation sequence: 60 deg Z-axis, -60 deg Y-axis, 60 deg X-axis). The piecewise reference attitude trajectory contains an acceleration phase (25% duration of slew), coast phase (50% duration of slew), and decceleration phase (25% duration of slew).
+
+![system_response_plots_piecewise_reference_60degZ_-60degY_60degX_150secSlew_with_torque_limits_with_2degintegrator](https://github.com/user-attachments/assets/bf76eb8d-2ed8-497f-b59a-63d3f3ba9b7f)
+
+The PID controller follows the desired piecewise reference attitude trajectory with a peak attitude error of ~1/5 deg during the acceleration and decceleration phases. To reduce the peak attitude error, the PID controller can be manually tuned further as shown below.
+
+![system_response_plots_piecewise_reference_60degZ_-60degY_60degX_150secSlew_greatly_with_torque_limits_with_2degintegrator](https://github.com/user-attachments/assets/a5a80b9c-e06d-495b-b811-8c34824a5871)
+
+The integrator contribution was greatly increased and is the main effector to reducing the overall attitude error for this reference trajectory. For this PID controller, the following Body plots show the remaining gain and phase margins for each body axis.
+
+| X Axis  | Y Axis | Z Axis |
+| ------------- | ------------- | ------------- |
+| ![closed_loop_bode_plots_X_axis](https://github.com/user-attachments/assets/24bf72a1-0bde-4b29-bf54-7c7e807e5bf4)  |  ![closed_loop_bode_plots_Y_axis](https://github.com/user-attachments/assets/63ff5ef2-c196-408b-902e-c832614b7ecb)  | ![closed_loop_bode_plot_Z_axis](https://github.com/user-attachments/assets/ec17cd87-3923-4476-a215-694f902d8308)  |
+
+Compared to the previous set of Bode plots, the controller bandwidth has increased for each axis. 
+
