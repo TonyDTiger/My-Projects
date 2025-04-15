@@ -53,6 +53,22 @@ To reduce the the bounded steady state attitude error even further, potentially 
 
 ![system_response_plots_sine_reference_increased_gains_with_torque_limits_with_2degintegrator_300s_cycle](https://github.com/user-attachments/assets/1763f1d4-2cb0-4470-aefb-9f71d76ba612)
 
+#### Single Axis PID Controller Manual Tuning for a Piecewise Reference Trajectory
+The plot below shows a rigid body rotating about a single axis with the same PID controller in the scenario above to control the rigid body to follow a desired piecewise reference angle trajectory with a 150s slew time and desired final reference angle of 60 deg. The piecewise reference angle trajectory contains an acceleration phase (35% duration of slew), coast phase (30% duration of slew), and decceleration phase (35% duration of slew).
+
+![system_response_plots_angle_reference_trajectory_60Deg_150sec_35%accel_30%coast_35%decel](https://github.com/user-attachments/assets/62481f8d-a613-45cc-aee4-9ef57999e3e1)
+
+The PID controller follows the desired piecewise reference attitude trajectory with a peak attitude error of ~13E-3 deg during the acceleration and decceleration phases. To reduce the peak attitude error, the PID controller can be manually tuned further as shown below.
+
+![system_response_plots_angle_reference_trajectory_60Deg_150sec_35%accel_30%coast_35%decel_new](https://github.com/user-attachments/assets/9fc523be-7009-4ee1-96fe-65eec143c7e5)
+
+The PID controller follows the desired piecewise reference angle trajectory with a peak attitude error of ~2E-3 deg during the acceleration and decceleration phases. For this PID controller, the following Bode plots show the remaining gain and phase margins.
+
+![closed_loop_bode_plots](https://github.com/user-attachments/assets/191dcd7d-c43f-4e5a-841e-585b3941b722)
+
+Compared to the previous set of Bode plots, the controller bandwidth has increased. 
+
+
 ---------------
 
 #### Three Axis PID Controller Tuning for a Constant Reference Trajectory
@@ -90,7 +106,7 @@ The PID controller follows the desired piecewise reference attitude trajectory w
 
 ![system_response_plots_piecewise_reference_60degZ_-60degY_60degX_150secSlew_greatly_with_torque_limits_with_2degintegrator](https://github.com/user-attachments/assets/a5a80b9c-e06d-495b-b811-8c34824a5871)
 
-The integrator contribution was greatly increased and is the main effector to reducing the overall attitude error for this reference trajectory. For this PID controller, the following Body plots show the remaining gain and phase margins for each body axis.
+The integrator contribution was greatly increased and is the main effector to reducing the overall attitude error for this reference trajectory. For this PID controller, the following Bode plots show the remaining gain and phase margins for each body axis.
 
 | X Axis  | Y Axis | Z Axis |
 | ------------- | ------------- | ------------- |
