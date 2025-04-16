@@ -9,18 +9,18 @@ This project of set of projects is to apply linear control theory and understand
 
 ## Preview of Current Progress
 
-#### Single Axis PD Controller Tuning Using Pole Placement and Matlab's Optimizer
+#### Single Axis Attitude PD Controller Tuning for a Step Reference Trajectory
 The plot below shows a rigid body rotating about a single axis with a PD controller to control the rigid body to the desired reference angle (30 deg Z-axis), mass property of the rigid body has a moment of inertia of 85 kg*m^2. As an intial start, the controller was tuned using pole placement (full state feedback), which is equivalent to a PD controller for this case, to achieve the desired 90s settling time and zero maximum overshoot percentage. 
 
 ![system_response_plot](https://github.com/user-attachments/assets/af1f06d1-a98a-4207-b360-4599ac1c3195)
 
-The plot below shows a rigid body rotating about a single axis with an "optimized" PID controller to control the rigid body to the desired reference angle (30 deg Z-axis). This controller started with the the PD controller gains from the scenario above, and was optimized with integral contribution to achieve the settling times and maximum overshoot percentages. For this scenario, the desired settling time decreased to 60 seconds relative to the scenario above.
+The plot below shows a rigid body rotating about a single axis with an updated PID controller using Matlab's optimizer function to control the rigid body to the desired reference angle (30 deg Z-axis). This controller started with the the PD controller gains from the scenario above, and was optimized with integral contribution to achieve the settling times and maximum overshoot percentages. For this scenario, the desired settling time decreased to 60 seconds relative to the scenario above.
 
 ![system_response_plots](https://github.com/user-attachments/assets/80cb79d1-a9e3-4e09-8989-ed8139e35535)
 
 The optimizer can use some improvement, as it resulted in missing the desired settling time and maximum overshoot percentage. The integrator contribution was zeroed intentionally as it was found that it did not affect the controller's performance. The next section will evaluate the controller's performance with an oscillatory reference trajectory.
 
-#### Single Axis PID Controller Manual Tuning for an Oscillatory Reference Trajectory
+#### Single Axis Attitude PID Controller Manual Tuning for an Oscillatory Reference Trajectory
 The plot below shows a rigid body rotating about a single axis using the same PD controller in the scenario above to control the rigid body to the desired oscillatory reference attitude trajectory, with a frequency of 0.0067 Hz (1/150). Performance metrics such as settling time and max overshoot percentage are not evaluated, instead the attitude error time profile will be evaluated.
 
 ![system_response_plots_cosine_reference](https://github.com/user-attachments/assets/ff1fb3d4-88d4-46bb-ab57-1801bd0da617)
@@ -53,7 +53,7 @@ To reduce the the bounded steady state attitude error even further, potentially 
 
 ![system_response_plots_sine_reference_increased_gains_with_torque_limits_with_2degintegrator_300s_cycle](https://github.com/user-attachments/assets/1763f1d4-2cb0-4470-aefb-9f71d76ba612)
 
-#### Single Axis PID Controller Manual Tuning for a Piecewise Reference Trajectory
+#### Single Axis Attitude PID Controller Manual Tuning for a Piecewise Reference Trajectory
 The plot below shows a rigid body rotating about a single axis with the same PID controller in the scenario above to control the rigid body to follow a desired piecewise reference angle trajectory with a 150s slew time and desired final reference angle of 60 deg. The piecewise reference angle trajectory contains an acceleration phase (35% duration of slew), coast phase (30% duration of slew), and decceleration phase (35% duration of slew).
 
 ![system_response_plots_angle_reference_trajectory_60Deg_150sec_35%accel_30%coast_35%decel](https://github.com/user-attachments/assets/62481f8d-a613-45cc-aee4-9ef57999e3e1)
@@ -71,12 +71,12 @@ Compared to the previous set of Bode plots, the controller bandwidth has increas
 
 ---------------
 
-#### Three Axis PID Controller Tuning for a Constant Reference Trajectory
+#### Three Axis Attitude PID Controller Tuning for a Step Reference Trajectory
 The plot below shows a rigid body rotating about three axes with a PD controller to control the rigid body to the desired reference attitude (15 deg X-axis, -15 deg Y-axis, 15 deg Z-axis), mass property of the rigid body has a diagonal moments of inertia of: 80.6, 187.2356, 148.0980 [Ixx, Iyy, Izz] kg*m^2 with zero products of inertia. The controller was tuned using pole placement (full state feedback) to achieve the desired 60 second settling times and maximum overshoot percentages. Modified Rodrigues Parameters (MRPs) are used as the attitude representation, as it allows a simple and convenient set of linearized rigid body attitude dynamics.
 
 ![system_response_plots_15degZ_-15degY_15degX_60sec](https://github.com/user-attachments/assets/ea759bfd-a6a1-472f-b0a4-f56c884c7c9d)
 
-#### Three Axis PID Controller Tuning for an Oscillatory Reference Trajectory
+#### Three Axis Attitude PID Controller Tuning for an Oscillatory Reference Trajectory
 The plot below shows a rigid body rotating about three axes with the same PD controller in the scenario above to control the rigid body to a desired oscillatory reference attitude trajectory with a 300s time period or 0.0033 Hz frequency. Modified Rodrigues Parameters (MRPs) are used as the attitude representation, as it allows a simple and convenient set of linearized rigid body attitude dynamics.
 
 ![system_response_plots_sine_reference_15degZ_-15degY_15degX_300secCycle](https://github.com/user-attachments/assets/cba6f799-f6d0-4b7e-83f7-158aae3eb37a)
@@ -97,7 +97,7 @@ For the final PID controller, the following Body plots show the remaining gain a
 
 Here each axis has different gain and phase margins due to the manual tuning process. 
 
-#### Three Axis PID Controller Tuning for a Piecewise Reference Trajectory
+#### Three Axis Attitude PID Controller Tuning for a Piecewise Reference Trajectory
 The plot below shows a rigid body rotating about three axes with the same PID controller in the scenario above to control the rigid body to follow a desired piecewise reference attitude trajectory with a 150s slew time and desired final reference attitude (ZYX rotation sequence: 15 deg Z-axis, -15 deg Y-axis, 15 deg X-axis). The piecewise reference attitude trajectory contains an acceleration phase (35% duration of slew), coast phase (30% duration of slew), and decceleration phase (35% duration of slew).
 
 ![system_response_plots_15degZ_-15degY_15degX_150secSlew_with_torque_limits 2degintegrator](https://github.com/user-attachments/assets/2e4ae744-3e31-4247-bd05-4b60942dbc46)
