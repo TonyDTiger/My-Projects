@@ -84,5 +84,4 @@ https://github.com/user-attachments/assets/25e63f3f-2789-49f2-ae9f-847c4ab967a6
 
 ## Contact
 
-- **Project Manager**: Tony Ly
-- **Team Members**: Katarina Labuguen
+- **Team Members**: Tony Ly, Katarina Labuguen
