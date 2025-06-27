@@ -10,7 +10,7 @@ This project analyzes a linear time invariant single mass spring damper system w
 ## Single Mass Spring Damper System
 The image below shows the common single mass spring damper system,
 
-![single_mass_spring_damper_system](https://github.com/user-attachments/assets/e7fde829-484b-4ba3-b6d4-704cf0ec87ab)
+![spring_mass_damper_system_diagram](https://github.com/user-attachments/assets/1be6b45f-47eb-461a-b2e1-2c0c7afa18ba)
 
 ## Mathematical Walkthrough
 A classic single mass spring damper system consists of:
@@ -126,22 +126,22 @@ The GUI will show two things:
 ### Reality Check 
 To confirm that everything is set up correctly, let's check that the plots are mathematically correct with a stable system. First, let's input a sinusoidal force with a frequency of 0.2 Hz into this system. 
 
-![GUI_screenshot_m=1_k=4pt5_c=1_inputfreq=0pt2](https://github.com/user-attachments/assets/5a90d72a-f816-42ba-861b-40594975e97d)
+![GUI_screenshot_m=1_k=4pt5_c=1_inputfreq=0pt2](https://github.com/user-attachments/assets/edf28e8f-77cf-4714-8dc8-77cb6b3718d1)
 
 Looking at the Bode plots, this results in an amplification factor of ~-10 dB (equivalent to ~0.3) and a phase shift of ~25 deg. Then looking at the time domain plot, the position response has a sinusoidal signal with an amplitude of ~0.3 (0.3 amplitude gain of the input force's unit amplitude is 0.3) and its peaks/valleys lags slightly behind the input force's peaks/valleys. Thus all checks out! If we run the time domain simulation with an input force frequency of 0.6 Hz, using the Bode plots, this should result in a lower amplitude and more delayed system response.
 
-![GUI_screenshot_m=1_k=4pt5_c=1_inputfreq=0pt6](https://github.com/user-attachments/assets/fc0fdcc6-9b6e-4056-b345-30eeaf3fd671)
+![GUI_screenshot_m=1_k=4pt5_c=1_inputfreq=0pt6](https://github.com/user-attachments/assets/8adc90fc-4e94-4143-9ff3-f80593f39bcd)
 
 A frequency of 0.6 Hz for the input force's frequency results in an amplification factor of ~-20 dB (equivalent to 0.1) and a phase shift of ~160 deg. Here the system's response is more attenuated and more delayed, compared to the previous system response above with the input force at 0.3 Hz frequency.
 
 ### Linear Algebra Stability Evaluation
 As noted above in the Mathematical Walkthrough section, we can check the stability of a linear time invariant system by assessing the sign of the state transition matrix's eigenvalues. An example of a stable system with negative eigenvalues is shown below with a unit step input force,
 
-![stable_unit_step_m=2pt5_k=2_c=4_inputfreq=0pt1](https://github.com/user-attachments/assets/fdec274b-bf39-435c-b982-32159aba78f7)
+![stable_unit_step_m=2pt5_k=2_c=4_inputfreq=0pt1](https://github.com/user-attachments/assets/96aa8865-0867-4115-91d0-8104244038fb)
 
 The system's response settles on a steady state and thus remains bounded over time. Now we'll look at the same system with a unit amplitude sinusoidal input force shown below,
 
-![stable_sinusoidal_m=2pt5_k=2_c=4_inputfreq=0pt1](https://github.com/user-attachments/assets/def388d3-7f64-44aa-ad5c-d1e9d56b4013)
+![stable_sinusoidal_m=2pt5_k=2_c=4_inputfreq=0pt1](https://github.com/user-attachments/assets/480c9a63-6b7b-43d2-bb11-29fd22bb1c32)
 
 Here the system's response does not settle on a steady state, due to a constantly changing input force, but does remain bounded over time and thus stable. After tinkering around with the GUI, it's not possible to obtain a spring mass damper unstable system with positive eigenvalues since the spring and/or damper always naturally drives the system to a steady state. It would take a negative spring stiffness and/or damping coefficient to create this unstable system, which is not naturally common. In the next section, we're going to look at an interesting scenario that causes the system to become unstable through resonance.
 
@@ -149,11 +149,11 @@ Here the system's response does not settle on a steady state, due to a constantl
 
 Let's now evaluate a system with zero damping and a unit step input force as shown below,
 
-![stable_unit_step_m=2pt5_k=2_c=0_inputfreq=0pt1](https://github.com/user-attachments/assets/4829b70c-fa92-4ee4-8fcb-2bd7cdf0d5c0)
+![stable_unit_step_m=2pt5_k=2_c=0_inputfreq=0pt1](https://github.com/user-attachments/assets/5a2e237f-f254-4a26-8383-c1e16c4c9864)
 
 Compared to the previous system with damping, this system response does not settle on a steady state but does remain bounded over time and thus stable. Note the state transition matrix's eigenvalue real components are zero, confirming that the system response does not decay nor grow over time. A system like this with zero eigenvalue real components is declared marginally stable. Now we'll look at the same system with a unit amplitude sinusoidal input force with a special frequency of 0.16 Hz as shown below,
 
-![unstable_sinusoidal_m=2pt5_k=2_c=0_inputfreq=0pt16](https://github.com/user-attachments/assets/88c8215e-1aba-4aae-b476-fbd8f9185272)
+![unstable_sinusoidal_m=2pt5_k=2_c=0_inputfreq=0pt16](https://github.com/user-attachments/assets/7d162984-dbc4-4d39-b2d0-1638b54d8455)
 
 The system response becomes unstable, since it grows unboundedly over time! This happened because the input force resonated with the system, similar to pushing someone on a swing at the right time to move them higher and faster. Looking at the Bode plots, the frequency of 0.16 Hz aligns closely with the peak of the magnitude plot and also the minimum (-180 deg) of the phase plot. This can be a bad setup for this system, because an input force at this frequency will result in greatly amplifying the system response and turns negative feedback into positive feedback, which results in the unstable infinitely growing system response shown above.
 
