@@ -77,7 +77,7 @@ B = \begin{bmatrix}
 \frac{1}{m}
 \end{bmatrix},\quad
 C = \begin{bmatrix}
-1 & 0
+1 & 1
 \end{bmatrix},\quad
 D = \begin{bmatrix}
 0
