@@ -93,7 +93,7 @@ We have now properly defined a 1st order state space representation of this syst
 Once we find a set of unique eigenvectors ($e_i$) and eigenvalues ($\lambda_i$), we can define a function that describes how our state evolve over time using the eigenvectors and eigenvalues as a compass, 
 
 $$
-x(t) = c_{1}e^{\lambda_1 t}e_1 + c_{2}e^{\lambda_2 t}$e_2
+x(t) = c_{1}e^{\lambda_1 t}e_1 + c_{2}e^{\lambda_2 t}e_2
 $$
 
 Note the eigenvalues can be a complex number: a + ib. To assess whether the system is stable, we assess the real component of each eigenvalue and check to see if they're all less than zero. If they are not, then the exponentials with positive eigenvalues will exponentially grow over time resulting in exponential growth (unstable) in one or more of our states.
