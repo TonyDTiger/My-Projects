@@ -320,11 +320,11 @@ Assuming the closed loop system does not have a reference state to track, we can
 
 With manually tuned LQR weight matrices: Q and R, the closed loop system is put to the test by applying a 1 meter X-axis reference command. The following closed loop system response is shown below,
 
-<img width="1575" height="1172" alt="scenario1_quadcopter_states" src="https://github.com/user-attachments/assets/d88c6117-91d9-4c73-8436-87e4ca37a70c" />
+<img width="1575" height="1172" alt="scenario1_quadcopter_states" src="https://github.com/user-attachments/assets/bd956662-21ce-4c4f-9c44-6afb4fd93755" />
 
-<img width="1577" height="778" alt="scenario1_controller_states" src="https://github.com/user-attachments/assets/18c6a477-4105-4812-9a3c-289a6c3ffd15" />
+<img width="1577" height="778" alt="scenario1_controller_states" src="https://github.com/user-attachments/assets/b54df58d-a0a9-42a3-aebf-ed5bba0867b8" />
 
-https://github.com/user-attachments/assets/898d22cc-d957-4b46-8228-042eaf033194
+https://github.com/user-attachments/assets/8a2a09dc-d78f-44a9-b79d-7e86cc9300fc
 
 Excellent! The closed loop system is able to track the 1 meter X-axis reference command and converge within ~2 seconds while being under rotor thrust limits.
 
@@ -332,11 +332,11 @@ Excellent! The closed loop system is able to track the 1 meter X-axis reference 
 
 Next, the closed loop system is put to the test by applying a 60 deg yaw reference command. The following closed loop system response is shown below,
 
-<img width="1576" height="1175" alt="scenario2_quadcopter_states" src="https://github.com/user-attachments/assets/53655c43-2559-4996-a414-b446454a5639" />
+<img width="1576" height="1175" alt="scenario2_quadcopter_states" src="https://github.com/user-attachments/assets/52063ffb-bf5c-4d2f-8a63-80dbf9dd11ff" />
 
-<img width="1571" height="782" alt="scenario2_controller_states" src="https://github.com/user-attachments/assets/c177c873-1cbc-4592-9033-74dea56fd084" />
+<img width="1571" height="782" alt="scenario2_controller_states" src="https://github.com/user-attachments/assets/6c5fd302-2626-421b-a6ce-5aa172a9733a" />
 
-https://github.com/user-attachments/assets/14c7a4b3-cb9b-4f58-b7b6-cbeab2ae5b09
+https://github.com/user-attachments/assets/ce896913-f2c4-4cb1-a40a-d9b280d8754b
 
 Excellent! The closed loop system is able to track the 60 deg yaw reference command and converge within ~4 seconds while being under rotor thrust limits.
 
@@ -344,11 +344,11 @@ Excellent! The closed loop system is able to track the 60 deg yaw reference comm
 
 Next, the closed loop system is put to the test by tracking dynamic reference commands. The following closed loop system response is shown below,
 
-<img width="1578" height="1179" alt="scenario3_quadcopter_states" src="https://github.com/user-attachments/assets/ce0266be-4ade-4cd5-b3f7-86d6ca861586" />
+<img width="1578" height="1179" alt="scenario3_quadcopter_states" src="https://github.com/user-attachments/assets/bb26af80-2c37-42de-b6c0-dd7cd7a6a228" />
 
-<img width="1574" height="774" alt="scenario3_controller_states" src="https://github.com/user-attachments/assets/8b0d0494-c727-4c74-8912-3d707663d1c7" />
+<img width="1574" height="774" alt="scenario3_controller_states" src="https://github.com/user-attachments/assets/17d7afa0-8979-47ca-82fb-1a289fe306f4" />
 
-https://github.com/user-attachments/assets/e0010e52-c231-4f08-8bbe-9c10974e2a3e
+https://github.com/user-attachments/assets/f80d654e-6196-41f7-a280-19619f3f9ebb
 
 For this test scenario, the LQR lags behind the X and Y position commands and has steady error with the yaw command. This serves as a reminder that the Linear Quadratic **Regulator** is meant to regulate states back to the operating point and not meant to track a non-zero external reference, although the LQR does this well for a static reference as seen in the two prior test scenarios above. To resolve the steady state error, a common approach is to add an integrator term to the controller. 
 
