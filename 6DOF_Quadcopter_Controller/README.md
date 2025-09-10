@@ -332,9 +332,9 @@ Excellent! The closed loop system is able to track the 1 meter X-axis reference 
 
 Next, the closed loop system is put to the test by applying a 60 deg yaw reference command. The following closed loop system response is shown below,
 
-<img width="1571" height="782" alt="scenario2_controller_states" src="https://github.com/user-attachments/assets/3d86ec14-451d-4870-894a-4b065238530a" />
-
 <img width="1576" height="1175" alt="scenario2_quadcopter_states" src="https://github.com/user-attachments/assets/53655c43-2559-4996-a414-b446454a5639" />
+
+<img width="1571" height="782" alt="scenario2_controller_states" src="https://github.com/user-attachments/assets/c177c873-1cbc-4592-9033-74dea56fd084" />
 
 https://github.com/user-attachments/assets/14c7a4b3-cb9b-4f58-b7b6-cbeab2ae5b09
 
