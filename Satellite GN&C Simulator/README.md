@@ -34,17 +34,18 @@ For this simulation, the four reaction wheels above are replaced with four Contr
 
 https://github.com/user-attachments/assets/9e2aed14-e257-4c0b-abb4-4891a4976cd4
 
-![Simulink_Data_Inspector_Snapshot](/Plots_and_Videos/01_22_2025_SunNadir_4CMGs_Test/AttitudeError_CMGs_Time_Profile.png)
+<img width="1134" height="1135" alt="AttitudeError_CMGs_Time_Profile" src="https://github.com/user-attachments/assets/544278ac-c85c-45b5-8cf9-994f091e402a" />
 
 #### Slew to Sun Earth Nadir Pointing Mode With 4 Control Moment Gyroscopes (pyramid configuration, wheel-only CMG mode), Simscape multibody video
 Note the CMGs can be used as reaction wheels as well! Gimbal angles and rates are controlled to near zero. 
 
 https://github.com/user-attachments/assets/25e63f3f-2789-49f2-ae9f-847c4ab967a6
 
-![Simulink_Data_Inspector_Snapshot](/Plots_and_Videos/01_23_2025_SunNadir_4CMGs_WheelOnlyMode_Test/AttitudeError_CMGs_Time_Profile.png)
+<img width="833" height="800" alt="AttitudeError_CMGs_Time_Profile" src="https://github.com/user-attachments/assets/817fc1eb-8107-48dc-998a-63c5b6d131a2" />
 
-## Simulator Architecture
-![GNC Matlab Simulator](/Plots_and_Videos/GN&C_Simulator_Architecture.png)
+## Simulator Simulink Layout
+<img width="1436" height="1151" alt="Simulator_Simulink_Layout" src="https://github.com/user-attachments/assets/b8cb00bf-16df-4b31-80d5-e2fa38a828ae" />
+
 
 ## Notes
 
