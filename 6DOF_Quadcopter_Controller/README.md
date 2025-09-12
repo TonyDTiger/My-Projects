@@ -56,6 +56,7 @@ To break down and simplify the problem, let's define some assumptions,
 * The quadcopter system is time invariant (i.e. no change in mass properties or rotor thrust capabilities)
 * The quadcopter is a rigid body (i.e. no structural flexible modes)
 * The quadcopter states are fully controllable and observable (note this can be assessed by forming the controllability and observability Gramian matrices)
+* Rotor forces and torques are immediately actuated
 
 ## State and System Parameter Definition
 
@@ -82,13 +83,13 @@ Mass properties of the quadcopter are: mass $m$ and principal moments of inertia
 
 - Each rotor produces thrust $f_i$ along the body $+z_b$ axis (opposing gravity when pitched/rolled to tilt the thrust vector).
 - Arm length from the CG to each rotor is $l$.
-- Reaction torques onto the quadcopter (about $z_b$) due to rotor torques and drag (where $k_{m}$ is a constant ratio of the rotor's lift and drag coefficients) are calculated as shown below,
+- The reaction torque onto the quadcopter along the vertical Z axis (about $z_b$) is calculated as a sum of the rotor torques, which can be represented as functions of the rotor lift and drag forces (where $k_{m}$ is a constant ratio of the rotor's lift and drag coefficients) are calculated as shown below,
 
 $$
 \tau_z = k_{m} (f_1 - f_2 + f_3 - f_4)
 $$
 
-Note the control inputs can also be represented as the spin speed of the rotors with a term such as: $\omega_{i}$. This is future work to complete, for now let's press on with using rotor forces.
+Note for a realistic quadcopter, the commanded rotor forces are achieved by translating the commanded rotor forces to commanded rotor spin speeds, and sending those commands to Electronic Speed Controllers (ESCs). This is future work to complete, for now let's press on with commanding rotor forces.
 
 ---
 
