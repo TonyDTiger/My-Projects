@@ -51,7 +51,7 @@ The arm length is given as $l$.
 
 ## Assumptions
 
-To break down and help simplify the problem. It is key to define some assumptions.
+To break down and simplify the problem, let's define some assumptions,
 
 * The quadcopter system is time invariant (i.e. no change in mass properties or rotor thrust capabilities)
 * The quadcopter is a rigid body (i.e. no structural flexible modes)
@@ -82,11 +82,13 @@ Mass properties of the quadcopter are: mass $m$ and principal moments of inertia
 
 - Each rotor produces thrust $f_i$ along the body $+z_b$ axis (opposing gravity when pitched/rolled to tilt the thrust vector).
 - Arm length from the CG to each rotor is $l$.
-- Reaction torques (about $z_b$) due to rotor drag and the spin pattern above are calculated as shown below,
+- Reaction torques onto the quadcopter (about $z_b$) due to rotor torques and drag (where $k_{m}$ is a constant ratio of the rotor's lift and drag coefficients) are calculated as shown below,
 
 $$
-\tau_z = \frac{C_{D}}{C_{L}} (f_1 - f_2 + f_3 - f_4)
+\tau_z = k_{m} (f_1 - f_2 + f_3 - f_4)
 $$
+
+Note the control inputs can also be represented as the spin speed of the rotors with a term such as: $\omega_{i}$. This is future work to complete, for now let's press on with using rotor forces.
 
 ---
 
