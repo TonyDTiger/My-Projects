@@ -353,8 +353,26 @@ Next, the closed loop system is put to the test by tracking dynamic reference co
 
 https://github.com/user-attachments/assets/f80d654e-6196-41f7-a280-19619f3f9ebb
 
-For this test scenario, the LQR lags behind the X and Y position commands and has steady error with the yaw command. This serves as a reminder that the Linear Quadratic **Regulator** is meant to regulate states back to the operating point and not meant to track a non-zero external reference, although the LQR does this well for a static reference as seen in the two prior test scenarios above. To resolve the steady state error, a common approach is to add an integrator term to the controller. 
+For this test scenario, the LQR lags behind the X and Y position commands and has steady error with the yaw command. This serves as a reminder that the Linear Quadratic **Regulator** is meant to regulate states back to the operating point and is not meant to track a dynamic reference, the LQR tracks really well for a static reference as seen in the two prior test scenarios above. To resolve the steady state yaw angle error, a common approach is to add an integrator term to the controller. 
 
-## Control Strategy: Linear Quadratic Integrator (LQI)
+##  Simulation Test Scenario #3 Repeat: New Control Strategy, the Linear Quadratic Integrator (LQI)
 
-To be continued...
+To add an integrator to the controller, we can integrate the yaw angle error by numerically summing up the yaw angle error, scaled by the time step, multiply the integrated error by a gain, and then add the final integrator result to our controller as analytically shown below,
+
+$$
+\mathbf{u} = -K \mathbf{x} - K_{i}\int_{0}^{t}(\mathbf{r} - \mathbf{x}\)dt
+$$
+
+Whenever adding an integrator term to a controller, it's good practice to apply a +/- clamping limit and optionally an activation region for when we want the integrator to kick in (e.g. if yaw angle error is < 5 deg, then start integrating the error). Both of these features are to avoid integrator windup and reduce overshoot from the "momentum" that the integrator has built up. The following closed loop system response is shown below,
+
+<img width="1573" height="1169" alt="scenario3_quadcopter_states_yaw_integrator" src="https://github.com/user-attachments/assets/1a868abd-0816-4a94-9992-06f94fbd100a" />
+
+<img width="1580" height="774" alt="scenario3_controller_states_yaw_integrator" src="https://github.com/user-attachments/assets/31c0466c-e5cc-4f70-9472-ffa2e190820f" />
+
+https://github.com/user-attachments/assets/2e9e86d8-a4e4-442b-84ec-44e2dbbb21e4
+
+Excellent! The integrator contribution improved the controller's ability to point towards the center of the circle and reduce the steady state yaw angle error to near zero. To improve the closed loop system's lag response with tracking the X and Y position commands, we can also include a rate command to the mix since we know analytically how the circle trajectory changes over time.
+
+##  Simulation Test Scenario #3 Repeat: Addition of Reference Rate Command
+
+To be continued... 
