@@ -351,7 +351,7 @@ Next, the closed loop system is put to the test by tracking dynamic reference co
 
 <img width="1574" height="774" alt="scenario3_controller_states" src="https://github.com/user-attachments/assets/17d7afa0-8979-47ca-82fb-1a289fe306f4" />
 
-https://github.com/user-attachments/assets/f80d654e-6196-41f7-a280-19619f3f9ebb
+https://github.com/user-attachments/assets/c9323f3d-dc7a-4910-821a-448694f16958
 
 For this test scenario, the LQR lags behind the X and Y position commands and has steady error with the yaw command. This serves as a reminder that the Linear Quadratic **Regulator** is meant to regulate states back to the operating point and is not meant to track a dynamic reference, the LQR tracks really well for a static reference as seen in the two prior test scenarios above. To resolve the steady state yaw angle error, a common approach is to add an integrator term to the controller. 
 
