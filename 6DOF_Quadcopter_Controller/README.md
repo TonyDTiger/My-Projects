@@ -405,9 +405,9 @@ Excellent! The circular reference trajectory rate commands improved the controll
 
 ## Simulation Test Scenario #4: Track a 1m radius circular path with the altitude ramping to 1m, while pointing the +X axis towards the center (spiral mode)
 
-<img width="1578" height="776" alt="scenario4_controller_states_yaw_integrator_ _vel_reference" src="https://github.com/user-attachments/assets/68342917-65b6-4325-a14a-0ef482a3d582" />
+<img width="1580" height="1173" alt="scenario4_quadcopter_states_yaw_integrator_ _vel_reference" src="https://github.com/user-attachments/assets/4468e720-84ab-4fc2-b937-71eaeebcb9bc" />
 
-<img width="1580" height="1173" alt="scenario4_quadcopter_states_yaw_integrator_ _vel_reference" src="https://github.com/user-attachments/assets/576f3282-3f18-42b4-a2fd-8c53649092e3" />
+<img width="1578" height="776" alt="scenario4_controller_states_yaw_integrator_ _vel_reference" src="https://github.com/user-attachments/assets/92be6245-1740-4970-b873-4cb4aa3ce69d" />
 
 https://github.com/user-attachments/assets/69ad40e5-cd2e-4ad1-810a-478ac2cd9c27
 
