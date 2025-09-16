@@ -401,3 +401,18 @@ where R is the circle radius and T is the time period for one full circular revo
 
 https://github.com/user-attachments/assets/802863fc-ae59-4cb3-9cd5-3ce48f8f2a3c
 
+Excellent! The circular reference trajectory rate commands improved the controller's ability to track the trajectory and mitigate the lagged response. It's interesting that the controller tracks slightly outside of the circular trajectory, but per requirements, this is within bounds! Let's put the controller through another test with a dynamic z position reference.
+
+## Simulation Test Scenario #4: Track a 1m radius circular path with the altitude ramping to 1m, while pointing the +X axis towards the center (spiral mode)
+
+<img width="1578" height="776" alt="scenario4_controller_states_yaw_integrator_ _vel_reference" src="https://github.com/user-attachments/assets/68342917-65b6-4325-a14a-0ef482a3d582" />
+
+<img width="1580" height="1173" alt="scenario4_quadcopter_states_yaw_integrator_ _vel_reference" src="https://github.com/user-attachments/assets/576f3282-3f18-42b4-a2fd-8c53649092e3" />
+
+https://github.com/user-attachments/assets/69ad40e5-cd2e-4ad1-810a-478ac2cd9c27
+
+Excellent, the LQI controller is keeping up quite well! Let's see if we can reduce the correction time for the yaw angle error with a higher integrator gain, to be continued... 
+
+## Closed Loop Stability Analysis
+
+To be continued... 
