@@ -345,7 +345,16 @@ Excellent! The closed loop system is able to track the 60 deg yaw reference comm
 
 ## Simulation Test Scenario #3: Track a 1m radius circular path at 1m altitude, while pointing the +X axis towards the center (orbit mode)
 
-Next, the closed loop system is put to the test by tracking dynamic reference commands. The following closed loop system response is shown below,
+Next, the closed loop system is put to the test by tracking dynamic reference commands. Given our NED inertial frame, the equations for a circular counter-clockwise (CCW) trajectory over time are given below,
+
+$$
+\begin{aligned}
+x_{desired}(t) = Rcos(2\pi\frac{t}{T}) \\
+y_{desired}(t) = -Rsin(2\pi\frac{t}{T}) \\
+\end{aligned}
+$$
+
+where R is the circle radius and T is the time period for one full circular revolution. The following closed loop system response is shown below,
 
 <img width="1578" height="1179" alt="scenario3_quadcopter_states" src="https://github.com/user-attachments/assets/bb26af80-2c37-42de-b6c0-dd7cd7a6a228" />
 
@@ -371,8 +380,24 @@ Whenever adding an integrator term to a controller, it's good practice to apply 
 
 https://github.com/user-attachments/assets/2e9e86d8-a4e4-442b-84ec-44e2dbbb21e4
 
-Excellent! The integrator contribution improved the controller's ability to point towards the center of the circle and reduce the steady state yaw angle error to near zero. To improve the closed loop system's lag response with tracking the X and Y position commands, we can also include a rate command to the mix since we know analytically how the circle trajectory changes over time.
+Excellent! The integrator contribution improved the controller's ability to point towards the center of the circle and reduce the steady state yaw angle error to near zero. To improve the closed loop system's lag response with tracking the X and Y position commands, we can also include X and Y rate commands to the mix since we know analytically how the circular trajectory changes over time.
 
-##  Simulation Test Scenario #3 Repeat: Addition of Reference Rate Command
+##  Simulation Test Scenario #3 Repeat: Inclusion of Reference Rate Command
 
-To be continued... 
+Given the equations for a circular counter-clockwise (CCW) trajectory above, the desired X and Y rate commands to apply are given below,
+
+$$
+\begin{aligned}
+\dot{x}_{desired}(t) = -\frac{R2\pi}{T}sin(2\pi\frac{t}{T}) \\
+\dot{y}_{desired}(t) = -\frac{R2\pi}{T}cos(2\pi\frac{t}{T})
+\end{aligned}
+$$
+
+where R is the circle radius and T is the time period for one full circular revolution. Adding these rate commands to the reference state vector profile, the following closed loop system response is shown below,
+
+<img width="1572" height="1172" alt="scenario3_quadcopter_states_yaw_integrator_ _vel_reference" src="https://github.com/user-attachments/assets/a2a6e52f-19a6-4c90-8e0e-4daabe2fb360" />
+
+<img width="1579" height="768" alt="scenario3_controller_states_yaw_integrator_ _vel_reference" src="https://github.com/user-attachments/assets/b649cc86-c638-4e9a-a2ea-37c28429d282" />
+
+https://github.com/user-attachments/assets/802863fc-ae59-4cb3-9cd5-3ce48f8f2a3c
+
