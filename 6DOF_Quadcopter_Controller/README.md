@@ -327,7 +327,7 @@ With manually tuned LQR weight matrices: Q and R, the closed loop system is put 
 
 <img width="1577" height="778" alt="scenario1_controller_states" src="https://github.com/user-attachments/assets/b54df58d-a0a9-42a3-aebf-ed5bba0867b8" />
 
-https://github.com/user-attachments/assets/8a2a09dc-d78f-44a9-b79d-7e86cc9300fc
+https://github.com/user-attachments/assets/e6a50f68-afc3-49fb-a98f-ee11bbc278dc
 
 Excellent! The closed loop system is able to track the 1 meter X-axis reference command and converge within ~2 seconds while being under rotor thrust limits.
 
@@ -360,7 +360,7 @@ where R is the circle radius and T is the time period for one full circular revo
 
 <img width="1574" height="774" alt="scenario3_controller_states" src="https://github.com/user-attachments/assets/17d7afa0-8979-47ca-82fb-1a289fe306f4" />
 
-https://github.com/user-attachments/assets/c9323f3d-dc7a-4910-821a-448694f16958
+https://github.com/user-attachments/assets/9341f1a2-24a9-476f-80dc-601c04e560f4
 
 For this test scenario, the LQR lags behind the X and Y position commands and has steady error with the yaw command. This serves as a reminder that the Linear Quadratic **Regulator** is meant to regulate states back to the operating point and is not meant to track a dynamic reference, the LQR tracks really well for a static reference as seen in the two prior test scenarios above. To resolve the steady state yaw angle error, a common approach is to add an integrator term to the controller. 
 
@@ -378,7 +378,7 @@ Whenever adding an integrator term to a controller, it's good practice to apply 
 
 <img width="1580" height="774" alt="scenario3_controller_states_yaw_integrator" src="https://github.com/user-attachments/assets/31c0466c-e5cc-4f70-9472-ffa2e190820f" />
 
-https://github.com/user-attachments/assets/2e9e86d8-a4e4-442b-84ec-44e2dbbb21e4
+https://github.com/user-attachments/assets/11bacbad-a2c9-4028-aee5-321788896d6a
 
 Excellent! The integrator contribution improved the controller's ability to point towards the center of the circle and reduce the steady state yaw angle error to near zero. To improve the closed loop system's lag response with tracking the X and Y position commands, we can also include X and Y rate commands to the mix since we know analytically how the circular trajectory changes over time.
 
