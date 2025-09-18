@@ -7,7 +7,7 @@ The objective of this project is to develop a controller to control a 6 Degrees 
 ## Requirements
 
 ### System level
-* The system shall have the ability to track a desired position within ±0.5 m in horizontal axes and ±0.25 m in altitude under nominal conditions
+* The system shall have the ability to track a desired position within ±0.5 m RSS in horizontal axes and ±0.1 m in altitude under nominal conditions
 * The system shall have a pointing accuracy as defined below:
     * Roll/pitch tracking error RMS ≤ 2° (0.0345 rad)
     * Yaw tracking error RMS ≤ 5° (0.0875 rad)
