@@ -343,7 +343,7 @@ https://github.com/user-attachments/assets/ce896913-f2c4-4cb1-a40a-d9b280d8754b
 
 Excellent! The closed loop system is able to track the 60 deg yaw reference command and converge within ~4 seconds while being under rotor thrust limits.
 
-## Simulation Test Scenario #3: Track a 1m radius circular path at 1m altitude, while pointing the +X axis towards the center (orbit mode)
+## Simulation Test Scenario #3: Track a 1m radius CCW circular path at 1m altitude, while pointing the +X axis towards the center (orbit mode)
 
 Next, the closed loop system is put to the test by tracking dynamic reference commands. Given our NED inertial frame, the equations for a circular counter-clockwise (CCW) trajectory over time are given below,
 
@@ -403,7 +403,7 @@ https://github.com/user-attachments/assets/802863fc-ae59-4cb3-9cd5-3ce48f8f2a3c
 
 Excellent! The circular reference trajectory rate commands improved the controller's ability to track the trajectory and mitigate the lagged response. It's interesting that the controller tracks slightly outside of the circular trajectory, but per requirements, this is within bounds! Let's put the controller through another test with a dynamic z position reference.
 
-## Simulation Test Scenario #4: Track a 1m radius circular path with the altitude ramping to 1m, while pointing the +X axis towards the center (spiral mode)
+## Simulation Test Scenario #4: Track a 1m radius CCW circular path with the altitude ramping up and down to 1m, while pointing the +X axis towards the center (spiral mode)
 
 <img width="1580" height="1173" alt="scenario4_quadcopter_states_yaw_integrator_ _vel_reference" src="https://github.com/user-attachments/assets/4468e720-84ab-4fc2-b937-71eaeebcb9bc" />
 
@@ -411,7 +411,9 @@ Excellent! The circular reference trajectory rate commands improved the controll
 
 https://github.com/user-attachments/assets/69ad40e5-cd2e-4ad1-810a-478ac2cd9c27
 
-Excellent, the LQI controller is keeping up quite well! Let's see if we can reduce the correction time for the yaw angle error with a higher integrator gain, to be continued... 
+Excellent, the LQI controller is keeping up quite well! Reversing the altitude trajectory to spiral down and shifting the center of the circle to a different location, the following closed loop system response is shown below,
+
+To be continued... 
 
 ## Closed Loop Stability Analysis
 
