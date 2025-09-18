@@ -273,8 +273,8 @@ $$
 J = \int_0^\infty \big( \mathbf{x}^T Q \mathbf{x} + \mathbf{u}^T R \mathbf{u} \big) dt
 $$
 
-- $Q (state error weight matrix) \succeq 0$: penalizes state deviations (e.g. large roll/pitch/yaw angles or position drift)
-- $R (control effort weight matrix) \succ 0$: penalizes large control inputs (excessive rotor thrust differentials)
+- $\text{state error weight matrix}: Q \succeq 0$: penalizes state deviations (e.g. large roll/pitch/yaw angles or position drift)
+- $\text{control effort weight matrix}: R \succ 0$: penalizes large control inputs (excessive rotor thrust differentials)
 
 The solution yields an optimal gain matrix,
 
