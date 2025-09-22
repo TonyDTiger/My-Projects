@@ -223,12 +223,12 @@ A =
 \Delta x \\
 \Delta y \\ 
 \Delta z \\ 
-\Delta \phi \\ 
-\Delta \theta \\ 
-\Delta \psi \\ 
 \Delta u \\ 
 \Delta v \\ 
 \Delta w \\ 
+\Delta \phi \\ 
+\Delta \theta \\ 
+\Delta \psi \\ 
 \Delta p \\ 
 \Delta q \\ 
 \Delta r
