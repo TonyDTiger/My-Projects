@@ -332,15 +332,17 @@ https://github.com/user-attachments/assets/07d01293-9fa9-4899-9816-fe26088e9b07
 
 Excellent! The closed loop system is able to track the 1 meter X-axis reference command and converge within ~2 seconds while being under rotor thrust limits.
 
-## Simulation Test Scenario #2: Yaw +60 deg relative to inertial frame
+## Simulation Test Scenario #2: Yaw +45 deg relative to inertial frame
 
-Next, the closed loop system is put to the test by applying a 60 deg yaw reference command. The following closed loop system response is shown below,
+Next, the closed loop system is put to the test by applying a 45 deg yaw reference command. The following closed loop system response is shown below,
 
-<img width="1576" height="1175" alt="scenario2_quadcopter_states" src="https://github.com/user-attachments/assets/52063ffb-bf5c-4d2f-8a63-80dbf9dd11ff" />
+Linearized EOM            |  Nonlinear EOM
+:-------------------------:|:-------------------------:
+<img width="1572" height="1170" alt="scenario2_quadcopter_states" src="https://github.com/user-attachments/assets/a8d26973-5dff-4428-a7e9-bd87bb04d837" />  |  <img width="1577" height="1177" alt="scenario2_quadcopter_states_nonlinear" src="https://github.com/user-attachments/assets/a874ce2e-7835-47b2-bdd0-e4ba83264488" />
+<img width="1578" height="772" alt="scenario2_controller_states" src="https://github.com/user-attachments/assets/eff16ee7-3879-4011-a769-6351d8258780" />  |  <img width="1572" height="774" alt="scenario2_controller_states_nonlinear" src="https://github.com/user-attachments/assets/07bae7a1-471f-46b9-ad58-db8a9d2a5fce" />
 
-<img width="1571" height="782" alt="scenario2_controller_states" src="https://github.com/user-attachments/assets/6c5fd302-2626-421b-a6ce-5aa172a9733a" />
 
-https://github.com/user-attachments/assets/ce896913-f2c4-4cb1-a40a-d9b280d8754b
+https://github.com/user-attachments/assets/b6edc44e-2e6b-43ad-8f26-f17de476e5b2
 
 Excellent! The closed loop system is able to track the 60 deg yaw reference command and converge within ~4 seconds while being under rotor thrust limits.
 
