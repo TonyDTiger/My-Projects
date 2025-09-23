@@ -326,7 +326,7 @@ With manually tuned LQR weight matrices: Q and R, the closed loop system is put 
 Linearized EOM            |  Nonlinear EOM
 :-------------------------:|:-------------------------:
 <img width="1579" height="1175" alt="scenario1_quadcopter_states" src="https://github.com/user-attachments/assets/51da8fb3-235b-4997-b52d-a55bda9ff378" /> |  <img width="1582" height="1172" alt="scenario1_quadcopter_states_nonlinear" src="https://github.com/user-attachments/assets/3dfc9b89-09a4-4e9e-aa35-a73854c08516" />
-<img width="1578" height="770" alt="scenario1_controller_states" src="https://github.com/user-attachments/assets/74e5f034-9a46-4af8-a768-30a738b4b3b4" />  |   <img width="1573" height="776" alt="scenario1_controller_states_nonlinear" src="https://github.com/user-attachments/assets/8f549892-5a6c-47f9-b037-3a198cb93a64" />
+<img width="1578" height="770" alt="scenario1_controller_states" src="https://github.com/user-attachments/assets/74e5f034-9a46-4af8-a768-30a738b4b3b4" />  |   <img width="1582" height="775" alt="scenario1_controller_states_nonlinear" src="https://github.com/user-attachments/assets/3a4f83d5-1894-4637-94cd-b93f33be61b3" />
 
 https://github.com/user-attachments/assets/07d01293-9fa9-4899-9816-fe26088e9b07
 
