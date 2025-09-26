@@ -24,8 +24,8 @@ The objective of this project is to develop a controller to control a 6 Degrees 
 
 ### Controller level
 * Gain and phase margins shall be ≥6 dB and ≥45°, respectively
-* The control algorithm shall run at a 50 Hz update rate
-* The controller shall handle sensor-to-actuator latency ≤ 20 ms (end-to-end)
+* The controller shall handle end-to-end latency (dead time) of at least 20 ms
+* The control algorithm update rate shall run at least at 50 Hz
 * The controller shall not demand thrust or torque exceeding 100% of rotor limits during nominal operation.
 
 ## Overview
