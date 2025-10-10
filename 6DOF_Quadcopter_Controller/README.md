@@ -399,7 +399,7 @@ $$
 \end{aligned}
 $$
 
-where R is the circle radius and T is the time period for one full circular revolution. Adding these rate commands to the reference state vector profile, the following closed loop system response is shown below,
+where R is the circle radius and T is the time period for one full circular revolution. Adding these rate commands to the reference state vector profile, the closed loop system response is shown below,
 
 Linearized EOM            |  Nonlinear EOM
 :-------------------------:|:-------------------------:
@@ -412,14 +412,24 @@ Excellent! The circular reference trajectory rate commands improved the controll
 
 ## Simulation Test Scenario #4: Track a 1m radius CCW circular path with the altitude ramping up and down to 1m, while pointing the +X axis towards the center (spiral mode)
 
-<img width="1580" height="1173" alt="scenario4_quadcopter_states_yaw_integrator_ _vel_reference" src="https://github.com/user-attachments/assets/4468e720-84ab-4fc2-b937-71eaeebcb9bc" />
+Increasing the initial desired altitude to 2m and tracking a 1m downwards spiral reference trajectory away from the origin, the closed loop system response is shown below,
 
-<img width="1578" height="776" alt="scenario4_controller_states_yaw_integrator_ _vel_reference" src="https://github.com/user-attachments/assets/92be6245-1740-4970-b873-4cb4aa3ce69d" />
+Linearized EOM            |  Nonlinear EOM
+:-------------------------:|:-------------------------:
+<img width="1600" height="1200" alt="scenario4_quadcopter_states_yaw_integrator_ _vel_reference" src="https://github.com/user-attachments/assets/43a36308-223e-46ca-bcb0-16fade17bcd4" />   | <img width="1600" height="1200" alt="scenario4_quadcopter_states_yaw_integrator_ _vel_reference_nonlinear" src="https://github.com/user-attachments/assets/5f77ad61-3422-4f2b-9e2e-852c034dcad5" />
+<img width="1600" height="800" alt="scenario4_controller_states_yaw_integrator_ _vel_reference" src="https://github.com/user-attachments/assets/720be3f1-90b6-4760-837e-d0d5a98b7994" />   |  <img width="1600" height="800" alt="scenario4_controller_states_yaw_integrator_ _vel_reference_nonlinear" src="https://github.com/user-attachments/assets/3799a66a-1b95-4eff-a71a-2ae205afcacf" />
 
-https://github.com/user-attachments/assets/69ad40e5-cd2e-4ad1-810a-478ac2cd9c27
+https://github.com/user-attachments/assets/71ad0713-54ef-4e3f-9cc0-a3a0e95c71af
 
-Excellent, the LQI controller is keeping up quite well! Reversing the altitude trajectory to spiral down and shifting the center of the circle to a different location, the following closed loop system response is shown below,
+Excellent, the LQI controller is keeping up quite well! 
 
+## Adding in Rotor Speed Dynamics
+To be continued... 
+
+## Adding in Sensors and State Estimation
+To be continued... 
+
+## Adding in Dead Time
 To be continued... 
 
 ## Closed Loop Stability Analysis
