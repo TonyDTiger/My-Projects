@@ -360,10 +360,10 @@ where R is the circle radius and T is the time period for one full circular revo
 
 Linearized EOM            |  Nonlinear EOM
 :-------------------------:|:-------------------------:
-<img width="1600" height="1200" alt="scenario3_quadcopter_states" src="https://github.com/user-attachments/assets/f0fa94e8-f4f1-477d-bd98-1893cc803ef7" />   |  <img width="1600" height="800" alt="scenario3_controller_states" src="https://github.com/user-attachments/assets/e603ca83-91f5-46a7-b004-7900377b8135" />
-<img width="1600" height="1200" alt="scenario3_quadcopter_states_nonlinear" src="https://github.com/user-attachments/assets/12e1afae-dd9e-468f-9824-826051c7760c" />  |  <img width="1600" height="800" alt="scenario3_controller_states_nonlinear" src="https://github.com/user-attachments/assets/e78af9a4-4d6c-422f-9ed5-c9e6404a9e11" />
+<img width="1600" height="1200" alt="scenario3_quadcopter_states" src="https://github.com/user-attachments/assets/c02c1aa6-8c57-44eb-aeb5-4e1fdfc7c30b" />    |  <img width="1600" height="1200" alt="scenario3_quadcopter_states_nonlinear" src="https://github.com/user-attachments/assets/8a8b8a1b-8a3c-4f72-874b-084aa6505727" />
+<img width="1600" height="800" alt="scenario3_controller_states" src="https://github.com/user-attachments/assets/f3827183-128c-41ff-97c8-0871d1a56039" />    |  <img width="1600" height="800" alt="scenario3_controller_states_nonlinear" src="https://github.com/user-attachments/assets/6685c430-e6e5-4890-8742-a3ec7d8f0e1b" />
 
-https://github.com/user-attachments/assets/d795d043-9d75-4643-a2ac-b7a9673a22d5
+https://github.com/user-attachments/assets/b8c58838-6a32-40fe-a287-1bcfcee018c1
 
 For this test scenario, the LQR lags behind the X and Y position commands and has steady error with the yaw command. This serves as a reminder that the Linear Quadratic **Regulator** is meant to regulate states back to the operating point and is not meant to track a dynamic reference, the LQR tracks really well for a static reference as seen in the two prior test scenarios above. To resolve the steady state yaw angle error, a common approach is to add an integrator term to the controller. 
 
