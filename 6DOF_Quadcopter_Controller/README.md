@@ -388,22 +388,25 @@ Excellent! The integrator contribution improved the controller's ability to poin
 
 ##  Simulation Test Scenario #3 Repeat: Inclusion of Reference Rate Command
 
-Given the equations for a circular counter-clockwise (CCW) trajectory above, the desired X and Y rate commands to apply are given below,
+Given the equations for a circular counter-clockwise (CCW) trajectory above, the desired X and Y translation rate and yaw rate commands to apply are given below,
 
 $$
 \begin{aligned}
 \dot{x}_{desired}(t) = -\frac{R2\pi}{T}sin(2\pi\frac{t}{T}) \\
-\dot{y}_{desired}(t) = -\frac{R2\pi}{T}cos(2\pi\frac{t}{T})
+\dot{y}_{desired}(t) = -\frac{R2\pi}{T}cos(2\pi\frac{t}{T}) \\
+\dot{\psi}_{desired}(t) = -\frac{2\pi}{T}   \\
+\text{(negative for CCW rotation, based on NED frame)}
 \end{aligned}
 $$
 
 where R is the circle radius and T is the time period for one full circular revolution. Adding these rate commands to the reference state vector profile, the following closed loop system response is shown below,
 
-<img width="1572" height="1172" alt="scenario3_quadcopter_states_yaw_integrator_ _vel_reference" src="https://github.com/user-attachments/assets/a2a6e52f-19a6-4c90-8e0e-4daabe2fb360" />
+Linearized EOM            |  Nonlinear EOM
+:-------------------------:|:-------------------------:
+<img width="1600" height="1200" alt="scenario3_quadcopter_states_yaw_integrator_ _vel_reference" src="https://github.com/user-attachments/assets/dc6b2ba8-3184-4bfe-ac0b-0600c2ce58bc" />    |  <img width="1600" height="1200" alt="scenario3_quadcopter_states_yaw_integrator_ _vel_reference_nonlinear" src="https://github.com/user-attachments/assets/d3b9fcc6-3d14-4532-a091-f5e2a041cfd6" />
+<img width="1600" height="800" alt="scenario3_controller_states_yaw_integrator_ _vel_reference" src="https://github.com/user-attachments/assets/b1679baf-ed05-424e-a7ef-4f9b8c8ea309" />    |  <img width="1600" height="800" alt="scenario3_controller_states_yaw_integrator_ _vel_reference_nonlinear" src="https://github.com/user-attachments/assets/ed5a299a-da09-4109-ae17-0fb583a90cb6" />
 
-<img width="1579" height="768" alt="scenario3_controller_states_yaw_integrator_ _vel_reference" src="https://github.com/user-attachments/assets/b649cc86-c638-4e9a-a2ea-37c28429d282" />
-
-https://github.com/user-attachments/assets/802863fc-ae59-4cb3-9cd5-3ce48f8f2a3c
+https://github.com/user-attachments/assets/76b8a258-71bb-4ff2-aa4f-e18878ec0694
 
 Excellent! The circular reference trajectory rate commands improved the controller's ability to track the trajectory and mitigate the lagged response. It's interesting that the controller tracks slightly outside of the circular trajectory, but per requirements, this is within bounds! Let's put the controller through another test with a dynamic z position reference.
 
