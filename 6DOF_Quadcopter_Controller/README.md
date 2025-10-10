@@ -377,11 +377,12 @@ $$
 
 Whenever adding an integrator term to a controller, it's good practice to apply a +/- clamping limit and optionally an activation region for when we want the integrator to kick in (e.g. if yaw angle error is < 5 deg, then start integrating the error). Both of these features are to avoid integrator windup and reduce overshoot from the "momentum" that the integrator has built up. The following closed loop system response is shown below,
 
-<img width="1573" height="1169" alt="scenario3_quadcopter_states_yaw_integrator" src="https://github.com/user-attachments/assets/1a868abd-0816-4a94-9992-06f94fbd100a" />
+Linearized EOM            |  Nonlinear EOM
+:-------------------------:|:-------------------------:
+<img width="1600" height="1200" alt="scenario3_quadcopter_states_yaw_integrator" src="https://github.com/user-attachments/assets/26cb08fd-a971-4a70-b9c4-f969eeb76577" />    |  <img width="1600" height="1200" alt="scenario3_quadcopter_states_yaw_integrator_nonlinear" src="https://github.com/user-attachments/assets/5750e75d-5810-4548-90e0-67edb17a91bb" />
+<img width="1600" height="800" alt="scenario3_controller_states_yaw_integrator" src="https://github.com/user-attachments/assets/5f9d6634-751e-4bf0-a968-0b7b64040e2d" />    |  <img width="1600" height="800" alt="scenario3_controller_states_yaw_integrator_nonlinear" src="https://github.com/user-attachments/assets/29d2baf2-919d-4f77-9b5e-b48e192a743b" />
 
-<img width="1580" height="774" alt="scenario3_controller_states_yaw_integrator" src="https://github.com/user-attachments/assets/31c0466c-e5cc-4f70-9472-ffa2e190820f" />
-
-https://github.com/user-attachments/assets/11bacbad-a2c9-4028-aee5-321788896d6a
+https://github.com/user-attachments/assets/46ca8a26-85f2-41d2-945e-1909ab4562c0
 
 Excellent! The integrator contribution improved the controller's ability to point towards the center of the circle and reduce the steady state yaw angle error to near zero. To improve the closed loop system's lag response with tracking the X and Y position commands, we can also include X and Y rate commands to the mix since we know analytically how the circular trajectory changes over time.
 
