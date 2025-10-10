@@ -341,7 +341,6 @@ Linearized EOM            |  Nonlinear EOM
 <img width="1572" height="1170" alt="scenario2_quadcopter_states" src="https://github.com/user-attachments/assets/a8d26973-5dff-4428-a7e9-bd87bb04d837" />  |  <img width="1577" height="1177" alt="scenario2_quadcopter_states_nonlinear" src="https://github.com/user-attachments/assets/a874ce2e-7835-47b2-bdd0-e4ba83264488" />
 <img width="1578" height="772" alt="scenario2_controller_states" src="https://github.com/user-attachments/assets/eff16ee7-3879-4011-a769-6351d8258780" />  |  <img width="1572" height="774" alt="scenario2_controller_states_nonlinear" src="https://github.com/user-attachments/assets/07bae7a1-471f-46b9-ad58-db8a9d2a5fce" />
 
-
 https://github.com/user-attachments/assets/b6edc44e-2e6b-43ad-8f26-f17de476e5b2
 
 Excellent! The closed loop system is able to track the 60 deg yaw reference command and converge within ~4 seconds while being under rotor thrust limits.
@@ -357,13 +356,14 @@ y_{desired}(t) = -Rsin(2\pi\frac{t}{T}) \\
 \end{aligned}
 $$
 
-where R is the circle radius and T is the time period for one full circular revolution. The following closed loop system response is shown below,
+where R is the circle radius and T is the time period for one full circular revolution. A 30 second time period was chosen for this test scenario. The feedback controller was modified to apply yaw control when the quadcopter is at least 0.5m away from the center of the circle to avoid singularity in the yaw error calculation. The following closed loop system response is shown below,
 
-<img width="1578" height="1179" alt="scenario3_quadcopter_states" src="https://github.com/user-attachments/assets/bb26af80-2c37-42de-b6c0-dd7cd7a6a228" />
+Linearized EOM            |  Nonlinear EOM
+:-------------------------:|:-------------------------:
+<img width="1600" height="1200" alt="scenario3_quadcopter_states" src="https://github.com/user-attachments/assets/f0fa94e8-f4f1-477d-bd98-1893cc803ef7" />   |  <img width="1600" height="800" alt="scenario3_controller_states" src="https://github.com/user-attachments/assets/e603ca83-91f5-46a7-b004-7900377b8135" />
+<img width="1600" height="1200" alt="scenario3_quadcopter_states_nonlinear" src="https://github.com/user-attachments/assets/12e1afae-dd9e-468f-9824-826051c7760c" />  |  <img width="1600" height="800" alt="scenario3_controller_states_nonlinear" src="https://github.com/user-attachments/assets/e78af9a4-4d6c-422f-9ed5-c9e6404a9e11" />
 
-<img width="1574" height="774" alt="scenario3_controller_states" src="https://github.com/user-attachments/assets/17d7afa0-8979-47ca-82fb-1a289fe306f4" />
-
-https://github.com/user-attachments/assets/9341f1a2-24a9-476f-80dc-601c04e560f4
+https://github.com/user-attachments/assets/d795d043-9d75-4643-a2ac-b7a9673a22d5
 
 For this test scenario, the LQR lags behind the X and Y position commands and has steady error with the yaw command. This serves as a reminder that the Linear Quadratic **Regulator** is meant to regulate states back to the operating point and is not meant to track a dynamic reference, the LQR tracks really well for a static reference as seen in the two prior test scenarios above. To resolve the steady state yaw angle error, a common approach is to add an integrator term to the controller. 
 
