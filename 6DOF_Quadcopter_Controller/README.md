@@ -88,7 +88,7 @@ $$
 Each rotor produces lift $f_i$ along the body $+z_b$ axis (opposing gravity when pitched/rolled to tilt the lift vector), and scales with the rotor spin speed squared that's adjusted by a lift coefficient. The reaction torque onto the quadcopter along the vertical Z axis (about $z_b$) is calculated as a sum of the rotor torques, which are functions of the rotor lift and drag forces, where $C_{D}$ is the rotor's coefficient, as shown below,
 
 $$
-\tau_z = C_{D} (f_1 - f_2 + f_3 - f_4)
+\tau_z = C_{D} (\omega_1^2 - \omega_2^2 + \omega_3^2 - \omega_4^2)
 $$
 
 The signs of the rotor lift forces are intentional with two rotors spinning clockwise and the other two rotors spinning counter-clockwise, this allows the rotors to spin up without torquing the quadcopter. 
@@ -114,13 +114,13 @@ $$
 
 ### Rotational Dynamics
 
-From a free body diagram, moments from the individual lifts are obtained,
+From a free body diagram, moments from the individual rotor lift forces and drag torques are obtained,
 
 $$
 \begin{aligned}
 M_x &= \sum_i y_i f_i = \frac{l}{\sqrt{2}}(f_1 + f_2 - f_3 - f_4)\\
 M_y &= -\sum_i x_i f_i = \frac{l}{\sqrt{2}}(-f_1 + f_2 + f_3 - f_4)\\
-M_z &= k_m * (f_1 - f_2 + f_3 - f_4)
+M_z &= = C_{D} (\omega_1^2 - \omega_2^2 + \omega_3^2 - \omega_4^2)
 \end{aligned}
 $$
 
