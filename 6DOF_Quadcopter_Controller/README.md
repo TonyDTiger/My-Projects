@@ -97,14 +97,14 @@ The signs of the rotor lift forces are intentional with two rotors spinning cloc
 
 ## Nonlinear Equations of Motion
 
-### Translational Dynamics (inertial-frame)
+### Translational Dynamics
 
-Let $F_z = f_1 + f_2 + f_3 + f_4$, where $F_z$ is the total body $+z_b$ lift from the rotors. Starting with Newton's second law and a free body diagram, the translational equations of motion are obtained,
+Let $F_z = f_1 + f_2 + f_3 + f_4$, where $F_z$ is the total body $+z_b$ lift from the rotors. Starting with Newton's second law and a free body diagram, the translational equations of motion relative to the NED inertial frame are obtained,
 
 $$
 \begin{aligned}
-\dot{u} &= g\sin\theta + \frac{F_z}{m}\big(\cos\phi\ \sin\theta\ \cos\psi + \sin\phi\ \sin\psi\big)\\
-\dot{v} &= -g\sin\phi\cos\theta + \frac{F_z}{m}\big(\cos\phi\ \sin\theta\ \sin\psi - \sin\phi\ \cos\psi\big)\\
+\dot{u} &= - \frac{F_z}{m}\big(\cos\phi\ \sin\theta\ \cos\psi + \sin\phi\ \sin\psi\big)\\
+\dot{v} &= - \frac{F_z}{m}\big(\cos\phi\ \sin\theta\ \sin\psi - \sin\phi\ \cos\psi\big)\\
 \dot{w} &= g - \frac{F_z}{m}\big(\cos\phi\ \cos\theta\big)
 \end{aligned}
 $$
