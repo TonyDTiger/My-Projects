@@ -55,7 +55,7 @@ To break down and simplify the problem, let's define some assumptions,
 * The quadcopter system is time invariant (i.e. no change in mass properties or rotor lift capabilities)
 * The quadcopter is a rigid body (i.e. no structural flexible modes)
 * The quadcopter states are fully controllable and observable (note this can be assessed by forming the controllability and observability Gramian matrices)
-* The rotors have a lift coefficient ($C_{L}$)of 2.0E-5 $\frac{N}{(\frac{rad}{s})^2}$ and a drag ($C_{D}$) coefficient of 8.0E-7 $\frac{Nm}{(\frac{rad}{s})^2}$. This can be later tuned based on actual hardware characteristics.
+* Each rotor have a similar thrust coefficient ($C_{T}$)of 2.0E-5 $\frac{N}{(\frac{rad}{s})^2}$ and a propeller drag ($C_{D}$) coefficient of 8.0E-7 $\frac{Nm}{(\frac{rad}{s})^2}$. This can be later tuned based on actual hardware characteristics.
 
 ## State and System Parameter Definition
 
@@ -82,16 +82,16 @@ Mass properties of the quadcopter are: mass $m$ and principal moments of inertia
 Note for a realistic quadcopter, the commanded rotor forces are achieved by translating the commanded rotor forces to commanded rotor spin speeds, and sending those commands to Electronic Speed Controllers (ESCs). The mapping from rotor lift to rotor spin speed is given by the following simplified expression,
 
 $$
-f_i = C_{L} \omega_i^2 \text{, i} \in \{1, 2, 3, 4\}
+f_i = C_{T} \omega_i^2 \text{, i} \in \{1, 2, 3, 4\}
 $$
 
-Each rotor produces lift $f_i$ along the body $+z_b$ axis (opposing gravity when pitched/rolled to tilt the lift vector), and scales with the rotor spin speed squared that's adjusted by a lift coefficient. The reaction torque onto the quadcopter along the vertical Z axis (about $z_b$) is calculated as a sum of the rotor torques, which are functions of the rotor lift and drag forces, where $C_{D}$ is the rotor's coefficient, as shown below,
+where $C_{T}$ is the thrust coefficient. Each rotor produces lift $f_i$ along the body $+z_b$ axis (opposing gravity when pitched/rolled to tilt the lift vector), and scales with the rotor spin speed squared that's adjusted by the thrust coefficient. The reaction torque onto the quadcopter along the vertical Z axis (about $z_b$) is calculated as a sum of the rotor torques, which is a function of the rotor propeller drag force as shown below,
 
 $$
 \tau_z = C_{D} (\omega_1^2 - \omega_2^2 + \omega_3^2 - \omega_4^2)
 $$
 
-The signs of the rotor lift forces are intentional with two rotors spinning clockwise and the other two rotors spinning counter-clockwise, this allows the rotors to spin up without torquing the quadcopter. 
+ where $C_{D}$ is the rotor's propeller drag coefficient. The signs of the rotor lift forces are intentional with two rotors spinning clockwise and the other two rotors spinning counter-clockwise, this allows the rotors to synchronously spin up without torquing the quadcopter. 
 
 ---
 
@@ -99,7 +99,7 @@ The signs of the rotor lift forces are intentional with two rotors spinning cloc
 
 ### Translational Dynamics
 
-Let $F_z = f_1 + f_2 + f_3 + f_4$, where $F_z$ is the total body $+z_b$ lift from the rotors. Starting with Newton's second law and a free body diagram, the translational equations of motion relative to the NED inertial frame are obtained,
+Let $F_z = f_1 + f_2 + f_3 + f_4$, where $F_z$ is the total body lift force from the rotors that acts along the $+z_b$ axis. Starting with Newton's second law and a free body diagram, the translational equations of motion relative to the NED inertial frame are obtained,
 
 $$
 \begin{aligned}
@@ -109,7 +109,7 @@ $$
 \end{aligned}
 $$
 
-Note the total rotor lift force acts in the opposite direction of the body frame. 
+where the total body lift force varies depending on the attitude of the quadcopter. Note that the total rotor lift force acts in the opposite direction of the body frame. 
 
 ### Rotational Dynamics
 
