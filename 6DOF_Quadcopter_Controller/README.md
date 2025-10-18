@@ -55,7 +55,7 @@ To break down and simplify the problem, let's define some assumptions,
 * The quadcopter system is time invariant (i.e. no change in mass properties or rotor lift capabilities)
 * The quadcopter is a rigid body (i.e. no structural flexible modes)
 * The quadcopter states are fully controllable and observable (note this can be assessed by forming the controllability and observability Gramian matrices)
-* Each rotor have a similar thrust coefficient ($C_{T}$)of 2.0E-5 $\frac{N}{(\frac{rad}{s})^2}$ and a propeller drag ($C_{D}$) coefficient of 8.0E-7 $\frac{Nm}{(\frac{rad}{s})^2}$. This can be later tuned based on actual hardware characteristics.
+* Each rotor has a similar thrust coefficient ($C_{T}$)of 2.0E-5 $\frac{N}{(\frac{rad}{s})^2}$ and a propeller drag ($C_{D}$) coefficient of 8.0E-7 $\frac{Nm}{(\frac{rad}{s})^2}$. This can be later tuned based on actual hardware characteristics.
 
 ## State and System Parameter Definition
 
@@ -156,7 +156,7 @@ $$
 \phi = \theta = \psi = 0 \\
 u=v=w=0 \\
 p=q=r=0 \\
-f_{\text{trim}} = mg \\
+F_{\text{z, trim}} = mg \\
 \omega_{1,\text{trim}}^2=\omega_{2,\text{trim}}^2=\omega_{3,\text{trim}}^2=\omega_{4,\text{trim}}^2= \frac{1}{C_{L}} (\frac{f_{\text{trim}}}{4})
 \end{aligned}
 $$
