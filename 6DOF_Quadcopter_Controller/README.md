@@ -7,23 +7,23 @@ The objective of this project is to develop a controller to control a 6 Degrees 
 ## Requirements
 
 ### System level
-* The system shall have the ability to track a desired position within ±0.5 m RSS in horizontal axes and ±0.1 m in altitude under nominal conditions
+* The system shall have the ability to track a desired position within ±0.5 m RSS in horizontal axes and ±0.1 m in altitude with gusts up to 5 m/s
 * The system shall have a pointing accuracy as defined below:
     * Roll/pitch tracking error RMS ≤ 2° (0.0345 rad)
     * Yaw tracking error RMS ≤ 5° (0.0875 rad)
 
 ### Mechnical level
-* The quadcopter shall have a mass of 1.5 kg
-* The quadcopter shall have a moments of inertia of: $I_{xx}$ = 0.03 $kgm^2$, $I_{yy}$ = 0.03 $kgm^2$, $I_{zz}$ = 0.05 $kgm^2$
-* The quadcopter shall have rotor arm lengths of 0.225 m each
+* The quadcopter shall have a mass of at most 1.5 kg
+* The quadcopter shall have a moments of inertia of at most: $I_{xx}$ = 0.03 $kgm^2$, $I_{yy}$ = 0.03 $kgm^2$, $I_{zz}$ = 0.05 $kgm^2$
+* The quadcopter shall have rotor arm lengths of at most 0.225 m each
 
 ### Actuator level
 * The quadcopter shall have the rotors in a cross-configuration, with the first rotor in between the body X and Y axes
-* The quadcopter total lift shall have a 2:1 lift-to-weight ratio, with each rotor having the same lift capability
+* The quadcopter total lift shall have a 2:1 lift-to-weight ratio, with each rotor having equal lift capability to each other
 
 ### Controller level
 * Gain and phase margins shall be ≥6 dB and ≥45°, respectively
-* The controller shall handle end-to-end latency (dead time) of at least 20 ms
+* The controller shall handle end-to-end latency (dead time) of at most 20 ms
 * The control algorithm update rate shall run at least at 50 Hz
 * The controller shall not demand lift or torque exceeding 100% of rotor limits during nominal operation.
 
