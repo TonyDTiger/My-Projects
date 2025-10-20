@@ -14,7 +14,8 @@ The objective of this project is to develop a controller to control a 6 Degrees 
 
 ### Mechnical level
 * The quadcopter shall have a mass of at most 1.5 kg
-* The quadcopter shall have a moments of inertia of at most: $I_{xx}$ = 0.03 $kgm^2$, $I_{yy}$ = 0.03 $kgm^2$, $I_{zz}$ = 0.05 $kgm^2$
+* The quadcopter shall have a center of gravity location at the center of the quadcopter body (frame), TBD on location tolerances
+* The quadcopter shall have a moments of inertia of at most: $I_{x}$ = 0.03 $kgm^2$, $I_{y}$ = 0.03 $kgm^2$, $I_{z}$ = 0.05 $kgm^2$
 * The quadcopter shall have rotor arm lengths of at most 0.225 m each
 
 ### Actuator level
@@ -55,7 +56,7 @@ To break down and simplify the problem, let's define some assumptions,
 * The quadcopter system is time invariant (i.e. no change in mass properties or rotor lift capabilities)
 * The quadcopter is a rigid body (i.e. no structural flexible modes)
 * The quadcopter states are fully controllable and observable (note this can be assessed by forming the controllability and observability Gramian matrices)
-* Each rotor has a similar thrust coefficient ($C_{T}$)of 2.0E-5 $\frac{N}{(\frac{rad}{s})^2}$ and a propeller drag ($C_{D}$) coefficient of 8.0E-7 $\frac{Nm}{(\frac{rad}{s})^2}$. This can be later tuned based on actual hardware characteristics.
+* Each rotor has a similar thrust coefficient ($C_{T}$)of 1.4e-6 $\frac{N}{(\frac{rad}{s})^2}$, propeller drag ($C_{D}$) coefficient of 1.4e-8 $\frac{Nm}{(\frac{rad}{s})^2}$, and rotor inertia $I_{r}$ = 1.1e-5 $kgm^2$. This is based on common data on a 1.5 kg quadcopter and can be later tuned based on actual hardware characteristics.
 
 ## State and System Parameter Definition
 
@@ -79,7 +80,7 @@ Mass properties of the quadcopter are: mass $m$ and principal moments of inertia
 ---
 
 ## Control Inputs
-Note for a realistic quadcopter, the commanded rotor forces are achieved by translating the commanded rotor forces to commanded rotor spin speeds, and sending those commands to Electronic Speed Controllers (ESCs). The mapping from rotor lift to rotor spin speed is given by the following simplified expression,
+Note for a realistic quadcopter, the commanded rotor forces are achieved by translating the commanded rotor forces $f_i$ to commanded rotor spin speeds $\omega_i$, and sending those commands to Electronic Speed Controllers (ESCs). The mapping from rotor lift to rotor spin speed is given by the following simplified expression,
 
 $$
 f_i = C_{T} \omega_i^2 \text{, i} \in \{1, 2, 3, 4\}
@@ -91,7 +92,7 @@ $$
 \tau_z = C_{D} (\omega_1^2 - \omega_2^2 + \omega_3^2 - \omega_4^2)
 $$
 
- where $C_{D}$ is the rotor's propeller drag coefficient. The signs of the rotor lift forces are intentional with two rotors spinning clockwise and the other two rotors spinning counter-clockwise, this allows the rotors to synchronously spin up without torquing the quadcopter. 
+where $C_{D}$ is the rotor's propeller drag coefficient. The signs of the rotor lift forces are intentional with two rotors spinning clockwise and the other two rotors spinning counter-clockwise (+1 for CW, -1 for CCW relative to body frame), this allows the rotors to synchronously spin up without torquing the quadcopter. 
 
 ---
 
@@ -113,23 +114,32 @@ where the total body lift force varies depending on the attitude of the quadcopt
 
 ### Rotational Dynamics
 
-From a free body diagram, moments from the individual rotor lift forces and drag torques are obtained,
+From a free body diagram relative to the body frame, moments from the individual rotor lift forces and drag torques are obtained,
 
 $$
 \begin{aligned}
-M_x &= \sum_i y_i f_i = \frac{l}{\sqrt{2}}(f_1 + f_2 - f_3 - f_4) = \frac{l \cdot C_{L} }{\sqrt{2}}\(\omega_1^2 + \omega_2^2 - \omega_3^2 - \omega_4^2)\\
-M_y &= -\sum_i x_i f_i = \frac{l}{\sqrt{2}}(-f_1 + f_2 + f_3 - f_4) = \frac{l \cdot C_{L}}{\sqrt{2}}\(-\omega_1^2 + \omega_2^2 + \omega_3^2 - \omega_4^2) \\
-M_z & = C_{D} (\omega_1^2 - \omega_2^2 + \omega_3^2 - \omega_4^2)
+M_{\text{x, lift}} &= \sum_i y_i f_i = \frac{l}{\sqrt{2}}(f_1 + f_2 - f_3 - f_4) = \frac{l \cdot C_{L} }{\sqrt{2}}\(\omega_1^2 + \omega_2^2 - \omega_3^2 - \omega_4^2)\\
+M_{\text{y, lift}} &= -\sum_i x_i f_i = \frac{l}{\sqrt{2}}(-f_1 + f_2 + f_3 - f_4) = \frac{l \cdot C_{L}}{\sqrt{2}}\(-\omega_1^2 + \omega_2^2 + \omega_3^2 - \omega_4^2) \\
+M_{\text{z, drag}} & = C_{D} (\omega_1^2 - \omega_2^2 + \omega_3^2 - \omega_4^2)
 \end{aligned}
 $$
 
-where $l$ is the arm length from the quadcopter CG to each rotor. Starting with Euler's rotational equations of motion, the rigid-body rotational equations of motion are obtained,
+where $l$ is the arm length from the quadcopter CG to each rotor. Given that the rotors can spin at high speeds, each rotor can have high angular momentum that interact with the other rotors and the quadcopter and create gyroscopic coupling torques. Nominally during hover, the net angular momentum of the rotors is zero given that they're spinning at the same speeds with sets of two that spin in opposite directions, which results in zero coupling torques. However during maneuvers, the rotors can have different spin speeds and result in nonzero coupling torques, as calculated below,
 
 $$
 \begin{aligned}
-\dot{p} &= \frac{I_y - I_z}{I_x}qr + \frac{M_x}{I_x}\\
-\dot{q} &= \frac{I_z - I_x}{I_y}pr + \frac{M_y}{I_y}\\
-\dot{r} &= \frac{I_x - I_y}{I_z}pq + \frac{M_z}{I_z}
+M_{\text{x, spin}} &= I_r q \sum s_i \omega_i \\
+M_{\text{y, spin}} &= -I_r p \sum s_i \omega_i\\
+\end{aligned}
+$$
+
+where $s_i$ is the spin direction (+1 for CW, -1 for CCW relative to body frame). Starting with Euler's rotational equations of motion and using Transport theorem to factor in the torques defined above, the rigid-body rotational equations of motion are obtained,
+
+$$
+\begin{aligned}
+\dot{p} &= \frac{I_y - I_z}{I_x}qr + \frac{M_{\text{x, lift}} + M_{\text{x, spin}}}{I_x}\\
+\dot{q} &= \frac{I_z - I_x}{I_y}pr + \frac{M_{\text{y, lift}} + M_{\text{y, spin}}}{I_y}\\
+\dot{r} &= \frac{I_x - I_y}{I_z}pq + \frac{M_{\text{z, drag}}}{I_z}
 \end{aligned}
 $$
 
@@ -425,13 +435,13 @@ https://github.com/user-attachments/assets/ae397918-31bd-4ea4-8be1-25d1d0617ea5
 
 Excellent, the LQI controller is keeping up quite well! 
 
-## Adding in Rotor Speed Dynamics
-To be continued... 
-
 ## Adding in Sensors and State Estimation
 To be continued... 
 
 ## Adding in Dead Time
+To be continued... 
+
+## Adding in Gust Disturbance
 To be continued... 
 
 ## Closed Loop Stability Analysis
