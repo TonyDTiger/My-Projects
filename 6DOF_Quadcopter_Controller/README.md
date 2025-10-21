@@ -355,7 +355,7 @@ Linearized EOM            |  Nonlinear EOM
 
 https://github.com/user-attachments/assets/a4b0284f-8c47-4059-b57e-491f0984111d
 
-Excellent! The closed loop system is able to track the 60 deg yaw reference command and converge within ~4 seconds while being under rotor lift limits.
+Excellent! The closed loop system is able to track the 45 deg yaw reference command and converge within ~4 seconds while being under rotor lift limits.
 
 ## Simulation Test Scenario #3: Track a 1m radius CCW circular path at 1m altitude, while pointing the +X axis towards the center (orbit mode)
 
