@@ -436,6 +436,8 @@ https://github.com/user-attachments/assets/ae397918-31bd-4ea4-8be1-25d1d0617ea5
 Excellent, the LQI controller is keeping up quite well! 
 
 ## Adding in Sensors and State Estimation
+A common set of sensors that is used to determine a quadcopter's position, velocity, orientation, and angular rates consists of: 3 orthogonal accelerometers, 3 orthogonal rate gyros, a GPS receiver, a barometer, and a magnetometer. An accelerometer measures translational acceleration (which can also measure attitude relative to Earth's gravity/nadir vector), a rate gyro measures angular rate, a GPS receiver measures absolute position, velocity, and timing, a barometer measures pressure which translates to an altitude measurement, and a magnetometer measures attitude relative to Earth's magnetic North pole. All together, these sensors provide enough information to fully observe the quadcopter's 12 states. 
+
 To be continued... 
 
 ## Adding in Dead Time
