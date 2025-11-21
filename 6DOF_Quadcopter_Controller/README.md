@@ -56,6 +56,7 @@ To break down and simplify the problem, let's define some assumptions,
 * The quadcopter system is time invariant (i.e. no change in mass properties or rotor lift capabilities)
 * The quadcopter is a rigid body (i.e. no structural flexible modes)
 * The quadcopter states are fully controllable and observable (note this can be assessed by forming the controllability and observability Gramian matrices)
+  *  Note the quadcopter is an underactuated system because it has more degrees of freedom than it has control inputs
 * Each rotor has a similar thrust coefficient ($C_{T}$)of 1.4e-6 $\frac{N}{(\frac{rad}{s})^2}$, propeller drag ($C_{D}$) coefficient of 1.4e-8 $\frac{Nm}{(\frac{rad}{s})^2}$, and rotor inertia $I_{r}$ = 1.1e-5 $kgm^2$. This is based on common data on a 1.5 kg quadcopter and can be later tuned based on actual hardware characteristics.
 
 ## State and System Parameter Definition
@@ -63,7 +64,7 @@ To break down and simplify the problem, let's define some assumptions,
 We define the state vector:
 
 $$
-\mathbf{x} =
+\vec{x} =
 \begin{bmatrix}
 x & y & z & u & v & w & \phi & \theta & \psi & p & q & r
 \end{bmatrix}^T
@@ -159,19 +160,19 @@ $$
 
 ## Linearization About Hover Operating Point
 
-To linearize the nonlienar equations of motion above, a first-order Taylor series approximation can be applied about an operating point. This operating point is chosen to be during Hover equilibrium conditions, as defined below,
+To linearize the nonlienar equations of motion above, a first-order Taylor series approximation can be applied about an operating point. This operating point is chosen to be during a hover trim, as defined below,
 
 $$
 \begin{aligned}
-\phi = \theta = \psi = 0 \\
-u=v=w=0 \\
-p=q=r=0 \\
+\phi_{\text{trim}} = \theta_{\text{trim}} = \psi_{\text{trim}} = 0 \\
+u_{\text{trim}} = v_{\text{trim}} = w_{\text{trim}} = 0 \\
+p_{\text{trim}} = q_{\text{trim}} = r_{\text{trim}} = 0 \\
 F_{\text{z, trim}} = mg \\
 \omega_{1,\text{trim}}^2=\omega_{2,\text{trim}}^2=\omega_{3,\text{trim}}^2=\omega_{4,\text{trim}}^2= \frac{1}{C_{L}} (\frac{f_{\text{trim}}}{4})
 \end{aligned}
 $$
 
-where $\omega_{i,\text{trim}}^2$ are the individual rotor squared spin speeds needed to maintain a hover. Define small squared spin speed perturbations $\Delta \omega_i = \omega_i - \omega_{i,\text{trim}}$ and small perturbations in states, leading to the linearized equations of motion,
+where $\omega_{i,\text{trim}}^2$ are the individual rotor squared spin speeds needed to maintain a hover. Defining small perturbations (\omega) in states and small squared spin speed perturbations $\Delta \omega_i = \omega_i - \omega_{i,\text{trim}}$ relative to the hover trim operation point, this leads to the linearized equations of motion,
 
 $$
 \begin{aligned}
@@ -195,23 +196,26 @@ $$
 Note that the translational velocity components $u$ and $v$ are dependent on the pitch angle ($\theta$) and roll angle ($\phi$), thus there is coupling between these four state variables. With the input vector,
 
 $$
-\mathbf{u} =
+\vec{u} =
 \begin{bmatrix}\Delta \omega_1^2 & \Delta \omega_2^2 & \Delta \omega_3^2 & \Delta \omega_4^2 \end{bmatrix}^T
 $$
 
-The resulting linearized dynamics capture the small perturbation motion. 
+The resulting linearized dynamics capture the small perturbation motion relative to the hover trim operating point. 
 
 ---
 
 ## Open Loop Linear State Space Representation
 
-To utilize linear algebra and linear controls techniques, a state space representation can be defined based on the linearized equations of motion,
+To utilize linear algebra and classical controls techniques, a state space representation can be defined based on the linearized equations of motion,
 
 $$
-\dot{\mathbf{x}} = A\mathbf{x} + B\mathbf{u}
+\begin{aligned}
+\dot{\vec{x}} = A\vec{x} + B\vec{u} \\
+\vec{y} = C\vec{x} + D\vec{u}
+\end{aligned}
 $$
 
-The open loop system dynamics matrix (A) and state vector are defined as,
+The open loop system dynamics matrix (A) and state vector ($\vec{x}$) are defined as,
 
 $$
 A =
@@ -230,7 +234,7 @@ A =
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0     
 \end{bmatrix}
 ,
-\mathbf{x} =
+\vec{x} =
 \begin{bmatrix}
 \Delta x \\
 \Delta y \\ 
@@ -247,7 +251,7 @@ A =
 \end{bmatrix}
 $$
 
-The control input dynamics matrix (B) and control inputs vector are defined as,
+The control input dynamics matrix (B) and control inputs vector ($\vec{u}$) are defined as,
 
 $$
 B =
@@ -266,12 +270,50 @@ B =
 \frac{C_{D}}{I_z} & -\frac{C_{D}}{I_z} & \frac{C_{D}}{I_z} & -\frac{C_{D}}{I_z}  
 \end{bmatrix}
 ,
-u = 
+\vec{u} = 
 \begin{bmatrix}
 \Delta \omega_{1}^2 \\
 \Delta \omega_{2}^2 \\ 
 \Delta \omega_{3}^2 \\ 
 \Delta \omega_{4}^2
+\end{bmatrix}
+$$
+
+For now, it's assumed that all of the system's internal states are observed as the output. Subsequent sections will re-evaluate this assumption when sensors and state estimation are considered. The output matrix (C) and feedthrough matrix (D) are temporarily defined as,
+
+$$
+C = 
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\   
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\   
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\   
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\   
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\  
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\   
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\  
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\  
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\  
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\   
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\  
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1     
+\end{bmatrix}
+$$
+
+$$
+B =
+\begin{bmatrix}
+0 & 0 & 0 & 0 \\  
+0 & 0 & 0 & 0 \\  
+0 & 0 & 0 & 0 \\ 
+0 & 0 & 0 & 0 \\  
+0 & 0 & 0 & 0 \\  
+0 & 0 & 0 & 0 \\  
+0 & 0 & 0 & 0 \\  
+0 & 0 & 0 & 0 \\  
+0 & 0 & 0 & 0 \\  
+0 & 0 & 0 & 0 \\  
+0 & 0 & 0 & 0 \\  
+0 & 0 & 0 & 0
 \end{bmatrix}
 $$
 
@@ -282,7 +324,7 @@ $$
 Based on the linearized equations of motion and state space representation, we have a Multiple Input Mulitple Output (MIMO) system with a few states that are coupled. A great control strategy for this type of system is the LQR. An LQR utilizes an optimal full state feedback gain matrix K to control and stabilize the system, balancing control effort via a control effort weight matrix R: against tracking error via a state error weight matrix: Q. The objective of the LQR minimizes the quadratic cost,
 
 $$
-J = \int_0^\infty \big( \mathbf{x}^T Q \mathbf{x} + \mathbf{u}^T R \mathbf{u} \big) dt
+J = \int_0^\infty \big( \vec{x}^T Q \vec{x} + \vec{u}^T R \vec{u} \big) dt
 $$
 
 - $\text{state error weight matrix}: Q \succeq 0$: penalizes state deviations (e.g. large roll/pitch/yaw angles or position drift)
@@ -303,14 +345,14 @@ $$
 In the end, the controller law to regulate the system, i.e. decrease state perturbations to zero, about an operating condition is:
 
 $$
-\mathbf{u} = -K \mathbf{x}
+\vec{u} = -K \vec{x}
 $$
 
 If we want to track a reference state or set of reference states, we can augment the controller law with the reference state vector,
 
 
 $$
-\mathbf{u} = K (\mathbf{x}_{ref} - \mathbf{x})
+\vec{u} = K (\vec{x}_{ref} - \vec{x})
 $$
 
 Note the LQR is formulated to provide a gain margin from atleast 6dB to infinty and a phase margin of atleast 60° for a perfectly modeled SISO or MIMO (with diagonal weighting matrices) system.
@@ -322,7 +364,7 @@ Note the LQR is formulated to provide a gain margin from atleast 6dB to infinty 
 Substituting the reference state controller law above into the open loop state model, the closed loop state space model is written as,
 
 $$
-\dot{\mathbf{x}} = (A - BK) \mathbf{x} + BK\mathbf{x}_{ref}
+\dot{\vec{x}} = (A - BK) \vec{x} + BK\vec{x}_{ref}
 $$
 
 Note that the gain matrix K can be acquired from a different control strategy such as cascaded PID control or from pole placement. 
@@ -384,7 +426,7 @@ For this test scenario, the LQR lags behind the X and Y position commands and ha
 To add an integrator to the controller, we can integrate the yaw angle error by numerically summing up the yaw angle error, scaled by the time step, multiply the integrated error by a gain, and then add the final integrator result to our controller as analytically shown below,
 
 $$
-\mathbf{u} = -K \mathbf{x} - K_{i}\int_{0}^{t}(\mathbf{r} - \mathbf{x}\)dt
+\vec{u} = -K \vec{x} - K_{i}\int_{0}^{t}(\vec{r} - \vec{x}\)dt
 $$
 
 Whenever adding an integrator term to a controller, it's good practice to apply a +/- clamping limit and optionally an activation region for when we want the integrator to kick in (e.g. if yaw angle error is < 5 deg, then start integrating the error). Both of these features are to avoid integrator windup and reduce overshoot from the "momentum" that the integrator has built up. The following closed loop system response is shown below,
