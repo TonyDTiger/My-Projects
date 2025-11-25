@@ -172,7 +172,7 @@ F_{\text{z, trim}} = mg \\
 \end{aligned}
 $$
 
-where $\omega_{i,\text{trim}}^2$ are the individual rotor squared spin speeds needed to maintain a hover. Defining small perturbations (\omega) in states and small squared spin speed perturbations $\Delta \omega_i = \omega_i - \omega_{i,\text{trim}}$ relative to the hover trim operation point, this leads to the linearized equations of motion,
+where $\omega_{i,\text{trim}}^2$ are the individual rotor squared spin speeds needed to maintain a hover. Defining small perturbations ($\omega$) in states and small squared spin speed perturbations $\Delta \omega_i = \omega_i - \omega_{i,\text{trim}}$ relative to the hover trim operation point, this leads to the linearized equations of motion,
 
 $$
 \begin{aligned}
